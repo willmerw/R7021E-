@@ -1,0 +1,19 @@
+running develop
+running egg_info
+writing test_pkg.egg-info/PKG-INFO
+writing dependency_links to test_pkg.egg-info/dependency_links.txt
+writing entry points to test_pkg.egg-info/entry_points.txt
+writing requirements to test_pkg.egg-info/requires.txt
+writing top-level names to test_pkg.egg-info/top_level.txt
+reading manifest file 'test_pkg.egg-info/SOURCES.txt'
+writing manifest file 'test_pkg.egg-info/SOURCES.txt'
+running build_ext
+Creating /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test-pkg.egg-link (link to .)
+Installing receiver_node script to /adv_robotics/lab1/install/test_pkg/lib/test_pkg
+Installing sender_node script to /adv_robotics/lab1/install/test_pkg/lib/test_pkg
+
+Installed /adv_robotics/lab1/build/test_pkg
+running symlink_data
+symbolically linking /adv_robotics/lab1/build/test_pkg/resource/test_pkg -> /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+symbolically linking /adv_robotics/lab1/build/test_pkg/package.xml -> /adv_robotics/lab1/install/test_pkg/share/test_pkg
+symbolically linking /adv_robotics/lab1/build/test_pkg/launch/test_launch.py -> /adv_robotics/lab1/install/test_pkg/share/test_pkg/launch

@@ -1,0 +1,328 @@
+[0.000000] (-) TimerEvent: {}
+[0.000811] (test_pkg) JobQueued: {'identifier': 'test_pkg', 'dependencies': OrderedDict()}
+[0.000859] (turtlebot3_fake_node) JobQueued: {'identifier': 'turtlebot3_fake_node', 'dependencies': OrderedDict()}
+[0.000885] (turtlebot3_gazebo) JobQueued: {'identifier': 'turtlebot3_gazebo', 'dependencies': OrderedDict()}
+[0.000906] (turtlebot_control) JobQueued: {'identifier': 'turtlebot_control', 'dependencies': OrderedDict()}
+[0.001137] (turtlebot3_simulations) JobQueued: {'identifier': 'turtlebot3_simulations', 'dependencies': OrderedDict({'turtlebot3_fake_node': '/adv_robotics/lab1/install/turtlebot3_fake_node', 'turtlebot3_gazebo': '/adv_robotics/lab1/install/turtlebot3_gazebo'})}
+[0.001165] (turtlebot3_fake_node) JobStarted: {'identifier': 'turtlebot3_fake_node'}
+[0.012330] (turtlebot3_gazebo) JobStarted: {'identifier': 'turtlebot3_gazebo'}
+[0.018041] (test_pkg) JobStarted: {'identifier': 'test_pkg'}
+[0.027434] (turtlebot_control) JobStarted: {'identifier': 'turtlebot_control'}
+[0.041272] (turtlebot3_fake_node) JobProgress: {'identifier': 'turtlebot3_fake_node', 'progress': 'cmake'}
+[0.042713] (turtlebot3_fake_node) Command: {'cmd': ['/usr/bin/cmake', '/adv_robotics/lab1/turtlebot3_simulations/turtlebot3_fake_node', '-DCMAKE_INSTALL_PREFIX=/adv_robotics/lab1/install/turtlebot3_fake_node'], 'cwd': '/adv_robotics/lab1/build/turtlebot3_fake_node', 'env': OrderedDict({'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'HOSTNAME': 'willmer', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/bin/helpers/browser.sh', 'HOME': '/home/ubuntu', 'OLDPWD': '/adv_robotics', 'TERM_PROGRAM_VERSION': '1.135.0', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-34d9ed02-162a-48d5-8fe0-c583b04d98c1.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-ff569288-69fb-4b0e-9db9-dc62f236188b.sock', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-61e41ff1-a5a9-4428-98ca-ae098355b68d.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/home/ubuntu/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/ubuntu/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/1000', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-61e41ff1-a5a9-4428-98ca-ae098355b68d.sock","/tmp/.X11-unix/X0","/home/ubuntu/.gnupg/S.gpg-agent"]', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/1000/vscode-git-9d8a2fa385.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-61e41ff1-a5a9-4428-98ca-ae098355b68d.sock', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X0', 'SHELL': '/bin/bash', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/adv_robotics/lab1/build/turtlebot3_fake_node', 'LC_ALL': 'C.UTF-8', 'COPILOT_DEBUG_NONCE': 'b7aed3aa38215b71cf9a6a43a141b80c', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.047288] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'cmake'}
+[0.049829] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '/adv_robotics/lab1/turtlebot3_simulations/turtlebot3_gazebo', '-DCMAKE_INSTALL_PREFIX=/adv_robotics/lab1/install/turtlebot3_gazebo'], 'cwd': '/adv_robotics/lab1/build/turtlebot3_gazebo', 'env': OrderedDict({'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'HOSTNAME': 'willmer', 'GIT_ASKPASS': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/bin/helpers/browser.sh', 'HOME': '/home/ubuntu', 'OLDPWD': '/adv_robotics', 'TERM_PROGRAM_VERSION': '1.135.0', 'VSCODE_IPC_HOOK_CLI': '/tmp/vscode-ipc-34d9ed02-162a-48d5-8fe0-c583b04d98c1.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'COLORTERM': 'truecolor', 'REMOTE_CONTAINERS': 'true', 'WAYLAND_DISPLAY': 'vscode-wayland-ff569288-69fb-4b0e-9db9-dc62f236188b.sock', 'ROS_DISTRO': 'jazzy', 'REMOTE_CONTAINERS_IPC': '/tmp/vscode-remote-containers-ipc-61e41ff1-a5a9-4428-98ca-ae098355b68d.sock', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/home/ubuntu/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/ubuntu/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/vscode/vscode-server/bin/linux-x64/08d4889f9ec4a1685d257b9b95de036c8e1ce1e5/bin/remote-cli:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'XDG_RUNTIME_DIR': '/tmp/user/1000', 'REMOTE_CONTAINERS_SOCKETS': '["/tmp/vscode-ssh-auth-61e41ff1-a5a9-4428-98ca-ae098355b68d.sock","/tmp/.X11-unix/X0","/home/ubuntu/.gnupg/S.gpg-agent"]', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/tmp/user/1000/vscode-git-9d8a2fa385.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/tmp/vscode-ssh-auth-61e41ff1-a5a9-4428-98ca-ae098355b68d.sock', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'REMOTE_CONTAINERS_DISPLAY_SOCK': '/tmp/.X11-unix/X0', 'SHELL': '/bin/bash', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/adv_robotics/lab1/build/turtlebot3_gazebo', 'LC_ALL': 'C.UTF-8', 'COPILOT_DEBUG_NONCE': 'b7aed3aa38215b71cf9a6a43a141b80c', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099505] (-) TimerEvent: {}
+[0.200086] (-) TimerEvent: {}
+[0.300613] (-) TimerEvent: {}
+[0.370846] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.371818] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.400781] (-) TimerEvent: {}
+[0.420249] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.433497] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.436754] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[0.445029] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ros_gz_sim: 1.0.22 (/opt/ros/jazzy/share/ros_gz_sim/cmake)\n'}
+[0.486042] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.494863] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.499912] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.500875] (-) TimerEvent: {}
+[0.509974] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.517374] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.525860] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.538051] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.546763] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.601050] (-) TimerEvent: {}
+[0.602144] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.8 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[0.644912] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.647160] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.663509] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.701247] (-) TimerEvent: {}
+[0.721620] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.723662] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.767152] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.801431] (-) TimerEvent: {}
+[0.835493] (turtlebot3_fake_node) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.901615] (-) TimerEvent: {}
+[0.935940] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.964870] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[0.969002] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Found tf2_msgs: 0.36.21 (/opt/ros/jazzy/share/tf2_msgs/cmake)\n'}
+[1.001776] (-) TimerEvent: {}
+[1.038336] (turtlebot3_fake_node) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:25 (find_package):\n'}
+[1.038754] (turtlebot3_fake_node) StderrLine: {'line': b'  By not providing "Findturtlebot3_msgs.cmake" in CMAKE_MODULE_PATH this\n'}
+[1.038910] (turtlebot3_fake_node) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[1.039011] (turtlebot3_fake_node) StderrLine: {'line': b'  "turtlebot3_msgs", but CMake did not find one.\n'}
+[1.039106] (turtlebot3_fake_node) StderrLine: {'line': b'\n'}
+[1.039194] (turtlebot3_fake_node) StderrLine: {'line': b'  Could not find a package configuration file provided by "turtlebot3_msgs"\n'}
+[1.039300] (turtlebot3_fake_node) StderrLine: {'line': b'  with any of the following names:\n'}
+[1.039412] (turtlebot3_fake_node) StderrLine: {'line': b'\n'}
+[1.039499] (turtlebot3_fake_node) StderrLine: {'line': b'    turtlebot3_msgsConfig.cmake\n'}
+[1.039586] (turtlebot3_fake_node) StderrLine: {'line': b'    turtlebot3_msgs-config.cmake\n'}
+[1.039625] (turtlebot3_fake_node) StderrLine: {'line': b'\n'}
+[1.039732] (turtlebot3_fake_node) StderrLine: {'line': b'  Add the installation prefix of "turtlebot3_msgs" to CMAKE_PREFIX_PATH or\n'}
+[1.039789] (turtlebot3_fake_node) StderrLine: {'line': b'  set "turtlebot3_msgs_DIR" to a directory containing one of the above files.\n'}
+[1.039885] (turtlebot3_fake_node) StderrLine: {'line': b'  If "turtlebot3_msgs" provides a separate development package or SDK, be\n'}
+[1.039940] (turtlebot3_fake_node) StderrLine: {'line': b'  sure it has been installed.\n'}
+[1.039981] (turtlebot3_fake_node) StderrLine: {'line': b'\n'}
+[1.040022] (turtlebot3_fake_node) StderrLine: {'line': b'\x1b[0m\n'}
+[1.040060] (turtlebot3_fake_node) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.040295] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.8 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[1.053749] (turtlebot3_fake_node) CommandEnded: {'returncode': 1}
+[1.059261] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[1.063488] (turtlebot3_fake_node) JobEnded: {'identifier': 'turtlebot3_fake_node', 'rc': 1}
+[1.077978] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found gz_math_vendor: 0.0.9 (/opt/ros/jazzy/share/gz_math_vendor/cmake)\n'}
+[1.079842] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[1.084161] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7\n'}
+[1.084754] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.084973] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2\n'}
+[1.086259] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found gz_sim_vendor: 0.0.10 (/opt/ros/jazzy/share/gz_sim_vendor/cmake)\n'}
+[1.097916] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sim8 -- found version 8.11.0\n'}
+[1.098329] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sim8\n'}
+[1.098561] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.9.0\n'}
+[1.098705] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of sdformat14\n'}
+[1.101905] (-) TimerEvent: {}
+[1.104896] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[1.132382] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found tinyxml2, version 10.0.0\n'}
+[1.187341] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[1.187686] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.187769] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2\n'}
+[1.187986] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-utils2> component [cli]\n'}
+[1.188457] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2-cli -- found version 2.2.1\n'}
+[1.188608] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2-cli\n'}
+[1.189928] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[1.190090] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2\n'}
+[1.190348] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.190728] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-plugin2> component [loader]\n'}
+[1.191137] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2-loader -- found version 2.0.4\n'}
+[1.191252] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2-loader\n'}
+[1.191579] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-plugin2> component [register]\n'}
+[1.191915] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2-register -- found version 2.0.4\n'}
+[1.192021] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2-register\n'}
+[1.192645] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.5.0\n'}
+[1.192732] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13\n'}
+[1.202111] (-) TimerEvent: {}
+[1.243584] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[1.250748] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[1.274007] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libzmq, version 4.3.5\n'}
+[1.302278] (-) TimerEvent: {}
+[1.319942] (test_pkg) JobEnded: {'identifier': 'test_pkg', 'rc': 'SIGINT'}
+[1.328577] (turtlebot_control) JobEnded: {'identifier': 'turtlebot_control', 'rc': 'SIGINT'}
+[1.355107] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[1.376223] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found uuid, version 2.39.3\n'}
+[1.402412] (-) TimerEvent: {}
+[1.420564] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.421062] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[1.421171] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-msgs10\n'}
+[1.453134] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.453470] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[1.462081] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-transport13> component [log]\n'}
+[1.462603] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13-log -- found version 13.5.0\n'}
+[1.462747] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13-log\n'}
+[1.463182] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-transport13> component [parameters]\n'}
+[1.463607] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13-parameters -- found version 13.5.0\n'}
+[1.463750] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13-parameters\n'}
+[1.464719] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[1.465076] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[1.465201] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5\n'}
+[1.465487] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.465729] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[1.465811] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[1.475122] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [av]\n'}
+[1.475478] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-av -- found version 5.8.0\n'}
+[1.475633] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-av\n'}
+[1.481910] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libswscale'\n"}
+[1.502638] (-) TimerEvent: {}
+[1.506036] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libswscale, version 7.5.100\n'}
+[1.568759] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavdevice >= 56.4.100'\n"}
+[1.590439] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavdevice, version 60.3.100\n'}
+[1.602722] (-) TimerEvent: {}
+[1.659110] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavformat'\n"}
+[1.677274] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavformat, version 60.16.100\n'}
+[1.702900] (-) TimerEvent: {}
+[1.736845] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavcodec'\n"}
+[1.758856] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavcodec, version 60.31.102\n'}
+[1.803072] (-) TimerEvent: {}
+[1.812427] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavutil'\n"}
+[1.835757] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavutil, version 58.29.100\n'}
+[1.882887] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [events]\n'}
+[1.883322] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-events -- found version 5.8.0\n'}
+[1.883395] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-events\n'}
+[1.883644] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[1.884024] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [graphics]\n'}
+[1.884384] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-graphics -- found version 5.8.0\n'}
+[1.884481] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-graphics\n'}
+[1.884663] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[1.886503] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [io]\n'}
+[1.886852] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-io -- found version 5.8.0\n'}
+[1.886932] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-io\n'}
+[1.887263] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [profiler]\n'}
+[1.887560] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-profiler -- found version 5.8.0\n'}
+[1.887652] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-profiler\n'}
+[1.888399] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-fuel_tools9 -- found version 9.1.1\n'}
+[1.888963] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-fuel_tools9\n'}
+[1.903198] (-) TimerEvent: {}
+[1.945480] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[1.965494] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found jsoncpp, version 1.9.5\n'}
+[2.003357] (-) TimerEvent: {}
+[2.036228] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'yaml-0.1'\n"}
+[2.055753] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found yaml-0.1, version 0.2.5\n'}
+[2.102127] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[2.103430] (-) TimerEvent: {}
+[2.125210] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libzip, version 1.7.3\n'}
+[2.176525] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.176974] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.177168] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5\n'}
+[2.177229] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.177266] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[2.177302] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[2.183720] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [testing]\n'}
+[2.184104] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-testing -- found version 5.8.0\n'}
+[2.184301] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-testing\n'}
+[2.184964] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.185273] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.186086] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-gui8 -- found version 8.4.0\n'}
+[2.186184] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-gui8\n'}
+[2.203542] (-) TimerEvent: {}
+[2.215249] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.215656] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.215871] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.216030] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.216238] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.5.0\n'}
+[2.216615] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.3\n'}
+[2.216783] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-rendering8\n'}
+[2.217012] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.217115] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7\n'}
+[2.217362] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.217486] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-math7> component [eigen3]\n'}
+[2.217900] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7-eigen3 -- found version 7.6.0\n'}
+[2.218012] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7-eigen3\n'}
+[2.219336] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.219457] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5\n'}
+[2.219640] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.219772] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[2.219833] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[2.230215] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [graphics]\n'}
+[2.230559] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [events]\n'}
+[2.230747] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [geospatial]\n'}
+[2.230886] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-geospatial -- found version 5.8.0\n'}
+[2.231030] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-geospatial\n'}
+[2.231140] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.231293] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.232094] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.232208] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2\n'}
+[2.232481] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.232612] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-plugin2> component [all]\n'}
+[2.232885] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for all libraries of gz-plugin2 -- found version 2.0.4\n'}
+[2.233274] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.233818] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.237110] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.249770] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7 -- found version 7.6.0\n'}
+[2.249997] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7\n'}
+[2.250180] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.250327] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.250517] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.250751] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.251561] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-physics7> component [heightmap]\n'}
+[2.251901] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7-heightmap -- found version 7.6.0\n'}
+[2.251984] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7-heightmap\n'}
+[2.252280] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.252559] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-physics7> component [mesh]\n'}
+[2.252836] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7-mesh -- found version 7.6.0\n'}
+[2.252923] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7-mesh\n'}
+[2.253165] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.253460] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-physics7> component [sdf]\n'}
+[2.253836] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7-sdf -- found version 7.6.0\n'}
+[2.254045] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7-sdf\n'}
+[2.254212] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.9.0\n'}
+[2.254932] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.255023] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8\n'}
+[2.279784] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.280184] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.280360] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.5.0\n'}
+[2.280595] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.3\n'}
+[2.280948] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.281170] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.9.0\n'}
+[2.281669] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [air_pressure]\n'}
+[2.282055] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-air_pressure -- found version 8.2.2\n'}
+[2.282201] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-air_pressure\n'}
+[2.282504] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [air_speed]\n'}
+[2.282811] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-air_speed -- found version 8.2.2\n'}
+[2.282919] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-air_speed\n'}
+[2.283282] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [altimeter]\n'}
+[2.283635] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-altimeter -- found version 8.2.2\n'}
+[2.283726] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-altimeter\n'}
+[2.284097] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [imu]\n'}
+[2.284433] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-imu -- found version 8.2.2\n'}
+[2.284521] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-imu\n'}
+[2.284871] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [force_torque]\n'}
+[2.285184] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-force_torque -- found version 8.2.2\n'}
+[2.285280] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-force_torque\n'}
+[2.285639] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [logical_camera]\n'}
+[2.285962] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-logical_camera -- found version 8.2.2\n'}
+[2.286050] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-logical_camera\n'}
+[2.286404] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [magnetometer]\n'}
+[2.286720] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-magnetometer -- found version 8.2.2\n'}
+[2.286812] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-magnetometer\n'}
+[2.287166] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [navsat]\n'}
+[2.287461] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-navsat -- found version 8.2.2\n'}
+[2.287560] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-navsat\n'}
+[2.287921] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [dvl]\n'}
+[2.288240] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-dvl -- found version 8.2.2\n'}
+[2.288329] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-dvl\n'}
+[2.288600] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.288714] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8\n'}
+[2.303646] (-) TimerEvent: {}
+[2.312125] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.312455] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.8.0\n'}
+[2.312776] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.5.0\n'}
+[2.313087] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.3\n'}
+[2.313377] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.313697] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.9.0\n'}
+[2.313884] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [rendering]\n'}
+[2.314257] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-rendering -- found version 8.2.2\n'}
+[2.314404] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-rendering\n'}
+[2.315374] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [rendering]\n'}
+[2.315464] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [lidar]\n'}
+[2.317496] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-lidar -- found version 8.2.2\n'}
+[2.317724] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-lidar\n'}
+[2.317916] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.318412] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [gpu_lidar]\n'}
+[2.318719] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-gpu_lidar -- found version 8.2.2\n'}
+[2.318955] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-gpu_lidar\n'}
+[2.319190] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.319690] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [camera]\n'}
+[2.320013] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-camera -- found version 8.2.2\n'}
+[2.320088] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-camera\n'}
+[2.320341] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.322470] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [boundingbox_camera]\n'}
+[2.322826] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-boundingbox_camera -- found version 8.2.2\n'}
+[2.322919] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-boundingbox_camera\n'}
+[2.323337] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [segmentation_camera]\n'}
+[2.323727] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-segmentation_camera -- found version 8.2.2\n'}
+[2.323792] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-segmentation_camera\n'}
+[2.324181] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [depth_camera]\n'}
+[2.324498] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-depth_camera -- found version 8.2.2\n'}
+[2.324620] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-depth_camera\n'}
+[2.324917] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.325322] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [rgbd_camera]\n'}
+[2.325639] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-rgbd_camera -- found version 8.2.2\n'}
+[2.325747] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-rgbd_camera\n'}
+[2.326014] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.326387] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [thermal_camera]\n'}
+[2.326687] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-thermal_camera -- found version 8.2.2\n'}
+[2.326786] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-thermal_camera\n'}
+[2.327058] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.327448] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [wide_angle_camera]\n'}
+[2.327775] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-wide_angle_camera -- found version 8.2.2\n'}
+[2.327929] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-wide_angle_camera\n'}
+[2.328837] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.3\n'}
+[2.329078] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.6.0\n'}
+[2.329351] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.356455] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.403827] (-) TimerEvent: {}
+[2.427032] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Configuring done (2.4s)\n'}
+[2.466399] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[2.472350] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Build files have been written to: /adv_robotics/lab1/build/turtlebot3_gazebo\n'}
+[2.493003] (turtlebot3_gazebo) JobEnded: {'identifier': 'turtlebot3_gazebo', 'rc': 'SIGINT'}
+[2.503840] (turtlebot3_simulations) JobSkipped: {'identifier': 'turtlebot3_simulations'}
+[2.504031] (-) TimerEvent: {}
+[2.504150] (-) EventReactorShutdown: {}

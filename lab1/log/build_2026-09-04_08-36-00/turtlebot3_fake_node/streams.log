@@ -1,0 +1,69 @@
+[0.035s] Invoking command in '/adv_robotics/lab1/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake /adv_robotics/lab1/turtlebot3_simulations/turtlebot3_fake_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/adv_robotics/lab1/install/turtlebot3_fake_node
+[0.251s] -- The C compiler identification is GNU 13.3.0
+[0.409s] -- The CXX compiler identification is GNU 13.3.0
+[0.454s] -- Detecting C compiler ABI info
+[0.660s] -- Detecting C compiler ABI info - done
+[0.674s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.676s] -- Detecting C compile features
+[0.677s] -- Detecting C compile features - done
+[0.697s] -- Detecting CXX compiler ABI info
+[0.896s] -- Detecting CXX compiler ABI info - done
+[0.905s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.905s] -- Detecting CXX compile features
+[0.905s] -- Detecting CXX compile features - done
+[0.914s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.075s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.154s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.247s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.331s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.354s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.385s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.415s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.478s] -- Found nav_msgs: 5.3.8 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.516s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.586s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.592s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.708s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.733s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.756s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.838s] -- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.863s] -- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)
+[1.872s] -- Found tf2_msgs: 0.36.21 (/opt/ros/jazzy/share/tf2_msgs/cmake)
+[1.941s] -- Found turtlebot3_msgs: 2.4.0 (/opt/ros/jazzy/share/turtlebot3_msgs/cmake)
+[2.047s] -- Configuring done (2.0s)
+[2.061s] -- Generating done (0.0s)
+[2.066s] -- Build files have been written to: /adv_robotics/lab1/build/turtlebot3_fake_node
+[2.082s] Invoked command in '/adv_robotics/lab1/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake /adv_robotics/lab1/turtlebot3_simulations/turtlebot3_fake_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/adv_robotics/lab1/install/turtlebot3_fake_node
+[2.083s] Invoking command in '/adv_robotics/lab1/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --build /adv_robotics/lab1/build/turtlebot3_fake_node -- -j16 -l16
+[2.163s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot3_fake_node.dir/src/turtlebot3_fake_node.cpp.o[0m
+[9.233s] [100%] [32m[1mLinking CXX executable turtlebot3_fake_node[0m
+[9.603s] [100%] Built target turtlebot3_fake_node
+[9.614s] Invoked command in '/adv_robotics/lab1/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --build /adv_robotics/lab1/build/turtlebot3_fake_node -- -j16 -l16
+[9.625s] Invoking command in '/adv_robotics/lab1/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --install /adv_robotics/lab1/build/turtlebot3_fake_node
+[9.636s] -- Install configuration: ""
+[9.637s] -- Execute custom install script
+[9.638s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/lib/turtlebot3_fake_node/turtlebot3_fake_node
+[9.650s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/launch/rviz2.launch.py
+[9.660s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/launch/turtlebot3_fake_node.launch.py
+[9.669s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/burger.yaml
+[9.677s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/waffle.yaml
+[9.688s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/waffle_pi.yaml
+[9.698s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/include//turtlebot3_fake_node/turtlebot3_fake_node.hpp
+[9.708s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/ament_index/resource_index/package_run_dependencies/turtlebot3_fake_node
+[9.716s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/ament_index/resource_index/parent_prefix_path/turtlebot3_fake_node
+[9.726s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/ament_prefix_path.sh
+[9.738s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/ament_prefix_path.dsv
+[9.748s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/path.sh
+[9.757s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/path.dsv
+[9.767s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.bash
+[9.778s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.sh
+[9.789s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.zsh
+[9.799s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.dsv
+[9.809s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/package.dsv
+[9.819s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/ament_index/resource_index/packages/turtlebot3_fake_node
+[9.829s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.840s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.850s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/turtlebot3_fake_nodeConfig.cmake
+[9.860s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/turtlebot3_fake_nodeConfig-version.cmake
+[9.870s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/package.xml
+[9.883s] Invoked command in '/adv_robotics/lab1/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --install /adv_robotics/lab1/build/turtlebot3_fake_node

@@ -1,0 +1,20 @@
+[1.006s] Invoking command in '/adv_robotics/lab1/src/test_pkg': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/test_pkg build --build-base /adv_robotics/lab1/build/test_pkg/build install --record /adv_robotics/lab1/build/test_pkg/install.log --install-scripts $base/lib/test_pkg --single-version-externally-managed install_data
+[1.300s] running egg_info
+[1.315s] writing ../../build/test_pkg/test_pkg.egg-info/PKG-INFO
+[1.316s] writing dependency_links to ../../build/test_pkg/test_pkg.egg-info/dependency_links.txt
+[1.316s] writing requirements to ../../build/test_pkg/test_pkg.egg-info/requires.txt
+[1.316s] writing top-level names to ../../build/test_pkg/test_pkg.egg-info/top_level.txt
+[1.355s] reading manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.356s] adding license file 'LICENSE'
+[1.356s] writing manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.356s] running build
+[1.356s] running build_py
+[1.357s] running install
+[1.363s] running install_lib
+[1.376s] running install_data
+[1.377s] running install_egg_info
+[1.389s] removing '/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg-0.0.0-py3.12.egg-info' (and everything under it)
+[1.389s] Copying ../../build/test_pkg/test_pkg.egg-info to /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg-0.0.0-py3.12.egg-info
+[1.390s] running install_scripts
+[1.472s] writing list of installed files to '/adv_robotics/lab1/build/test_pkg/install.log'
+[1.497s] Invoked command in '/adv_robotics/lab1/src/test_pkg' returned '0': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/test_pkg build --build-base /adv_robotics/lab1/build/test_pkg/build install --record /adv_robotics/lab1/build/test_pkg/install.log --install-scripts $base/lib/test_pkg --single-version-externally-managed install_data

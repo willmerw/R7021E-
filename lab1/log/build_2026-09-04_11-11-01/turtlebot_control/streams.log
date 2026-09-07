@@ -1,0 +1,36 @@
+[1.000s] Invoking command in '/adv_robotics/lab1/src/turtlebot_control': PYTHONPATH=/adv_robotics/lab1/build/turtlebot_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot_control build --build-base /adv_robotics/lab1/build/turtlebot_control/build install --record /adv_robotics/lab1/build/turtlebot_control/install.log --install-scripts $base/lib/turtlebot_control --single-version-externally-managed install_data
+[1.167s] running egg_info
+[1.167s] creating ../../build/turtlebot_control/turtlebot_control.egg-info
+[1.175s] writing ../../build/turtlebot_control/turtlebot_control.egg-info/PKG-INFO
+[1.175s] writing dependency_links to ../../build/turtlebot_control/turtlebot_control.egg-info/dependency_links.txt
+[1.176s] writing requirements to ../../build/turtlebot_control/turtlebot_control.egg-info/requires.txt
+[1.176s] writing top-level names to ../../build/turtlebot_control/turtlebot_control.egg-info/top_level.txt
+[1.176s] writing manifest file '../../build/turtlebot_control/turtlebot_control.egg-info/SOURCES.txt'
+[1.198s] reading manifest file '../../build/turtlebot_control/turtlebot_control.egg-info/SOURCES.txt'
+[1.198s] adding license file 'LICENSE'
+[1.198s] writing manifest file '../../build/turtlebot_control/turtlebot_control.egg-info/SOURCES.txt'
+[1.199s] running build
+[1.199s] running build_py
+[1.199s] creating /adv_robotics/lab1/build/turtlebot_control/build
+[1.199s] creating /adv_robotics/lab1/build/turtlebot_control/build/lib
+[1.199s] creating /adv_robotics/lab1/build/turtlebot_control/build/lib/turtlebot_control
+[1.199s] copying turtlebot_control/__init__.py -> /adv_robotics/lab1/build/turtlebot_control/build/lib/turtlebot_control
+[1.199s] copying turtlebot_control/cmd_vel_sender.py -> /adv_robotics/lab1/build/turtlebot_control/build/lib/turtlebot_control
+[1.199s] running install
+[1.204s] running install_lib
+[1.216s] creating /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot_control
+[1.216s] copying /adv_robotics/lab1/build/turtlebot_control/build/lib/turtlebot_control/__init__.py -> /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot_control
+[1.216s] copying /adv_robotics/lab1/build/turtlebot_control/build/lib/turtlebot_control/cmd_vel_sender.py -> /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot_control
+[1.216s] byte-compiling /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot_control/__init__.py to __init__.cpython-312.pyc
+[1.216s] byte-compiling /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot_control/cmd_vel_sender.py to cmd_vel_sender.cpython-312.pyc
+[1.217s] running install_data
+[1.217s] creating /adv_robotics/lab1/install/turtlebot_control/share/ament_index
+[1.217s] creating /adv_robotics/lab1/install/turtlebot_control/share/ament_index/resource_index
+[1.217s] creating /adv_robotics/lab1/install/turtlebot_control/share/ament_index/resource_index/packages
+[1.217s] copying resource/turtlebot_control -> /adv_robotics/lab1/install/turtlebot_control/share/ament_index/resource_index/packages
+[1.217s] copying package.xml -> /adv_robotics/lab1/install/turtlebot_control/share/turtlebot_control
+[1.217s] running install_egg_info
+[1.229s] Copying ../../build/turtlebot_control/turtlebot_control.egg-info to /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot_control-0.0.0-py3.12.egg-info
+[1.230s] running install_scripts
+[1.315s] writing list of installed files to '/adv_robotics/lab1/build/turtlebot_control/install.log'
+[1.373s] Invoked command in '/adv_robotics/lab1/src/turtlebot_control' returned '0': PYTHONPATH=/adv_robotics/lab1/build/turtlebot_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtlebot_control build --build-base /adv_robotics/lab1/build/turtlebot_control/build install --record /adv_robotics/lab1/build/turtlebot_control/install.log --install-scripts $base/lib/turtlebot_control --single-version-externally-managed install_data

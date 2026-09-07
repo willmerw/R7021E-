@@ -1,0 +1,39 @@
+[1.050s] Invoking command in '/adv_robotics/lab1/src/test_pkg': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/test_pkg build --build-base /adv_robotics/lab1/build/test_pkg/build install --record /adv_robotics/lab1/build/test_pkg/install.log --install-scripts $base/lib/test_pkg --single-version-externally-managed install_data
+[1.325s] running egg_info
+[1.325s] creating ../../build/test_pkg/test_pkg.egg-info
+[1.337s] writing ../../build/test_pkg/test_pkg.egg-info/PKG-INFO
+[1.337s] writing dependency_links to ../../build/test_pkg/test_pkg.egg-info/dependency_links.txt
+[1.337s] writing requirements to ../../build/test_pkg/test_pkg.egg-info/requires.txt
+[1.338s] writing top-level names to ../../build/test_pkg/test_pkg.egg-info/top_level.txt
+[1.338s] writing manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.358s] reading manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.358s] adding license file 'LICENSE'
+[1.359s] writing manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.359s] running build
+[1.359s] running build_py
+[1.359s] creating /adv_robotics/lab1/build/test_pkg/build
+[1.359s] creating /adv_robotics/lab1/build/test_pkg/build/lib
+[1.359s] creating /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+[1.360s] copying test_pkg/__init__.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+[1.360s] copying test_pkg/sender.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+[1.360s] copying test_pkg/receiver.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+[1.360s] running install
+[1.364s] running install_lib
+[1.374s] creating /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.374s] copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/__init__.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.374s] copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/sender.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.374s] copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/receiver.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.374s] byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/__init__.py to __init__.cpython-312.pyc
+[1.374s] byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/sender.py to sender.cpython-312.pyc
+[1.375s] byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/receiver.py to receiver.cpython-312.pyc
+[1.375s] running install_data
+[1.375s] creating /adv_robotics/lab1/install/test_pkg/share/ament_index
+[1.375s] creating /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index
+[1.375s] creating /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+[1.375s] copying resource/test_pkg -> /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+[1.375s] copying package.xml -> /adv_robotics/lab1/install/test_pkg/share/test_pkg
+[1.375s] running install_egg_info
+[1.385s] Copying ../../build/test_pkg/test_pkg.egg-info to /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg-0.0.0-py3.12.egg-info
+[1.385s] running install_scripts
+[1.460s] writing list of installed files to '/adv_robotics/lab1/build/test_pkg/install.log'
+[1.496s] Invoked command in '/adv_robotics/lab1/src/test_pkg' returned '0': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/test_pkg build --build-base /adv_robotics/lab1/build/test_pkg/build install --record /adv_robotics/lab1/build/test_pkg/install.log --install-scripts $base/lib/test_pkg --single-version-externally-managed install_data

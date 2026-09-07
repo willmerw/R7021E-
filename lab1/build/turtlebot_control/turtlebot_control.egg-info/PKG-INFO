@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: turtlebot-control
+Version: 0.0.0
+Summary: TODO: Package description
+Maintainer: ubuntu
+Maintainer-email: willmer@wohlen.se
+License: Apache-2.0
+Provides-Extra: test

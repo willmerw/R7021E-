@@ -1,0 +1,10 @@
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/uninstall.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/turtlebot3_fake_node_uninstall.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/turtlebot3_fake_node.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/test.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/edit_cache.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/rebuild_cache.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/list_install_components.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/install.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/install/local.dir
+/adv_robotics/lab1/build/turtlebot3_fake_node/CMakeFiles/install/strip.dir

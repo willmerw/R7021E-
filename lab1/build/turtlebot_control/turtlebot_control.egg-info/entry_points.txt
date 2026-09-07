@@ -1,0 +1,5 @@
+[console_scripts]
+controller_node = turtlebot_control.cmd_vel_sender:main
+position_sender_node = turtlebot_control.position_sender:main
+wall_follow_node = turtlebot_control.wall_follow:main
+wall_pt_node = turtlebot_control.closest_wallpt:main

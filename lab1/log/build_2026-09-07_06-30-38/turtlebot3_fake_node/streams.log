@@ -1,0 +1,31 @@
+[0.043s] Invoking command in '/adv_robotics/lab1/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/turtlebot_control:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --build /adv_robotics/lab1/build/turtlebot3_fake_node -- -j16 -l16
+[0.342s] [100%] Built target turtlebot3_fake_node
+[0.344s] Invoked command in '/adv_robotics/lab1/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/turtlebot_control:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --build /adv_robotics/lab1/build/turtlebot3_fake_node -- -j16 -l16
+[0.363s] Invoking command in '/adv_robotics/lab1/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/turtlebot_control:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --install /adv_robotics/lab1/build/turtlebot3_fake_node
+[0.650s] -- Install configuration: ""
+[0.650s] -- Execute custom install script
+[0.650s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/lib/turtlebot3_fake_node/turtlebot3_fake_node
+[0.650s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/launch/rviz2.launch.py
+[0.650s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/launch/turtlebot3_fake_node.launch.py
+[0.650s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/burger.yaml
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/waffle.yaml
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/param/waffle_pi.yaml
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/include//turtlebot3_fake_node/turtlebot3_fake_node.hpp
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/ament_index/resource_index/package_run_dependencies/turtlebot3_fake_node
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/ament_index/resource_index/parent_prefix_path/turtlebot3_fake_node
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/ament_prefix_path.sh
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/ament_prefix_path.dsv
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/path.sh
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/environment/path.dsv
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.bash
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.sh
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.zsh
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/local_setup.dsv
+[0.651s] -- Symlinking: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/package.dsv
+[0.651s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/ament_index/resource_index/packages/turtlebot3_fake_node
+[0.652s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.652s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.652s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/turtlebot3_fake_nodeConfig.cmake
+[0.652s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/cmake/turtlebot3_fake_nodeConfig-version.cmake
+[0.652s] -- Up-to-date symlink: /adv_robotics/lab1/install/turtlebot3_fake_node/share/turtlebot3_fake_node/package.xml
+[0.661s] Invoked command in '/adv_robotics/lab1/build/turtlebot3_fake_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/adv_robotics/lab1/install/turtlebot_control:/adv_robotics/lab1/install/test_pkg:/opt/ros/jazzy /usr/bin/cmake --install /adv_robotics/lab1/build/turtlebot3_fake_node

@@ -1,0 +1,2 @@
+Invoking command in '/adv_robotics/lab1/build/turtlebot3_fake_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /adv_robotics/lab1/turtlebot3_simulations/turtlebot3_fake_node -DCMAKE_INSTALL_PREFIX=/adv_robotics/lab1/install/turtlebot3_fake_node
+Invoked command in '/adv_robotics/lab1/build/turtlebot3_fake_node' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /adv_robotics/lab1/turtlebot3_simulations/turtlebot3_fake_node -DCMAKE_INSTALL_PREFIX=/adv_robotics/lab1/install/turtlebot3_fake_node

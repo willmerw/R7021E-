@@ -1,0 +1,37 @@
+[0.906s] Invoking command in '/adv_robotics/lab1/build/test_pkg': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /adv_robotics/lab1/build/test_pkg/build
+[1.091s] running develop
+[1.186s] Removing /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test-pkg.egg-link (link to .)
+[1.212s] Invoked command in '/adv_robotics/lab1/build/test_pkg' returned '0': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /adv_robotics/lab1/build/test_pkg/build
+[1.214s] Invoking command in '/adv_robotics/lab1/src/test_pkg': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/test_pkg build --build-base /adv_robotics/lab1/build/test_pkg/build install --record /adv_robotics/lab1/build/test_pkg/install.log --install-scripts $base/lib/test_pkg --single-version-externally-managed install_data --force
+[1.364s] running egg_info
+[1.374s] writing ../../build/test_pkg/test_pkg.egg-info/PKG-INFO
+[1.374s] writing dependency_links to ../../build/test_pkg/test_pkg.egg-info/dependency_links.txt
+[1.374s] writing entry points to ../../build/test_pkg/test_pkg.egg-info/entry_points.txt
+[1.374s] writing requirements to ../../build/test_pkg/test_pkg.egg-info/requires.txt
+[1.374s] writing top-level names to ../../build/test_pkg/test_pkg.egg-info/top_level.txt
+[1.393s] reading manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.393s] adding license file 'LICENSE'
+[1.394s] writing manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+[1.394s] running build
+[1.394s] running build_py
+[1.394s] copying test_pkg/sender.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+[1.394s] copying test_pkg/receiver.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+[1.395s] running install
+[1.399s] running install_lib
+[1.407s] creating /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.407s] copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/__init__.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.408s] copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/sender.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.408s] copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/receiver.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+[1.408s] byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/__init__.py to __init__.cpython-312.pyc
+[1.408s] byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/sender.py to sender.cpython-312.pyc
+[1.409s] byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/receiver.py to receiver.cpython-312.pyc
+[1.409s] running install_data
+[1.409s] copying resource/test_pkg -> /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+[1.409s] copying package.xml -> /adv_robotics/lab1/install/test_pkg/share/test_pkg
+[1.409s] running install_egg_info
+[1.423s] Copying ../../build/test_pkg/test_pkg.egg-info to /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg-0.0.0-py3.12.egg-info
+[1.424s] running install_scripts
+[1.508s] Installing receiver_node script to /adv_robotics/lab1/install/test_pkg/lib/test_pkg
+[1.508s] Installing sender_node script to /adv_robotics/lab1/install/test_pkg/lib/test_pkg
+[1.509s] writing list of installed files to '/adv_robotics/lab1/build/test_pkg/install.log'
+[1.561s] Invoked command in '/adv_robotics/lab1/src/test_pkg' returned '0': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/test_pkg build --build-base /adv_robotics/lab1/build/test_pkg/build install --record /adv_robotics/lab1/build/test_pkg/install.log --install-scripts $base/lib/test_pkg --single-version-externally-managed install_data --force

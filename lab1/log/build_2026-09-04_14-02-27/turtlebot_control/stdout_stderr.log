@@ -1,0 +1,18 @@
+running develop
+running egg_info
+writing turtlebot_control.egg-info/PKG-INFO
+writing dependency_links to turtlebot_control.egg-info/dependency_links.txt
+writing entry points to turtlebot_control.egg-info/entry_points.txt
+writing requirements to turtlebot_control.egg-info/requires.txt
+writing top-level names to turtlebot_control.egg-info/top_level.txt
+reading manifest file 'turtlebot_control.egg-info/SOURCES.txt'
+writing manifest file 'turtlebot_control.egg-info/SOURCES.txt'
+running build_ext
+Creating /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot-control.egg-link (link to .)
+Installing controller_node script to /adv_robotics/lab1/install/turtlebot_control/lib/turtlebot_control
+Installing position_sender_node script to /adv_robotics/lab1/install/turtlebot_control/lib/turtlebot_control
+
+Installed /adv_robotics/lab1/build/turtlebot_control
+running symlink_data
+creating /adv_robotics/lab1/install/turtlebot_control/share/turtlebot_control/launch
+symbolically linking /adv_robotics/lab1/build/turtlebot_control/launch/eight.launch.py -> /adv_robotics/lab1/install/turtlebot_control/share/turtlebot_control/launch

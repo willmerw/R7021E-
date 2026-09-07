@@ -1,0 +1,3 @@
+[console_scripts]
+receiver_node = test_pkg.receiver:main
+sender_node = test_pkg.sender:main

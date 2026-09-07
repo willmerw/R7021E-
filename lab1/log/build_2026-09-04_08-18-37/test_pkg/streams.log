@@ -1,0 +1,22 @@
+[1.443s] Invoking command in '/adv_robotics/lab1/build/test_pkg': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /adv_robotics/lab1/build/test_pkg/build --no-deps symlink_data --force
+[1.640s] running develop
+[1.733s] running egg_info
+[1.742s] writing test_pkg.egg-info/PKG-INFO
+[1.742s] writing dependency_links to test_pkg.egg-info/dependency_links.txt
+[1.742s] writing entry points to test_pkg.egg-info/entry_points.txt
+[1.742s] writing requirements to test_pkg.egg-info/requires.txt
+[1.742s] writing top-level names to test_pkg.egg-info/top_level.txt
+[1.759s] reading manifest file 'test_pkg.egg-info/SOURCES.txt'
+[1.760s] writing manifest file 'test_pkg.egg-info/SOURCES.txt'
+[1.769s] running build_ext
+[1.769s] Creating /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test-pkg.egg-link (link to .)
+[1.769s] Installing receiver_node script to /adv_robotics/lab1/install/test_pkg/lib/test_pkg
+[1.769s] Installing sender_node script to /adv_robotics/lab1/install/test_pkg/lib/test_pkg
+[1.770s] 
+[1.770s] Installed /adv_robotics/lab1/build/test_pkg
+[1.770s] running symlink_data
+[1.770s] symbolically linking /adv_robotics/lab1/build/test_pkg/resource/test_pkg -> /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+[1.770s] symbolically linking /adv_robotics/lab1/build/test_pkg/package.xml -> /adv_robotics/lab1/install/test_pkg/share/test_pkg
+[1.770s] creating /adv_robotics/lab1/install/test_pkg/share/test_pkg/launch
+[1.770s] error: [Errno 2] No such file or directory: '/adv_robotics/lab1/install/test_pkg/share/test_pkg/launch/test_launch.py'
+[1.808s] Invoked command in '/adv_robotics/lab1/build/test_pkg' returned '1': PYTHONPATH=/adv_robotics/lab1/build/test_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /adv_robotics/lab1/build/test_pkg/build --no-deps symlink_data --force

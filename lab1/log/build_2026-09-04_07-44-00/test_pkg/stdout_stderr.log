@@ -1,0 +1,37 @@
+running egg_info
+creating ../../build/test_pkg/test_pkg.egg-info
+writing ../../build/test_pkg/test_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/test_pkg/test_pkg.egg-info/dependency_links.txt
+writing requirements to ../../build/test_pkg/test_pkg.egg-info/requires.txt
+writing top-level names to ../../build/test_pkg/test_pkg.egg-info/top_level.txt
+writing manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+reading manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/test_pkg/test_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /adv_robotics/lab1/build/test_pkg/build
+creating /adv_robotics/lab1/build/test_pkg/build/lib
+creating /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+copying test_pkg/__init__.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+copying test_pkg/sender.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+copying test_pkg/receiver.py -> /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg
+running install
+running install_lib
+creating /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/__init__.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/sender.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+copying /adv_robotics/lab1/build/test_pkg/build/lib/test_pkg/receiver.py -> /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg
+byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/__init__.py to __init__.cpython-312.pyc
+byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/sender.py to sender.cpython-312.pyc
+byte-compiling /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg/receiver.py to receiver.cpython-312.pyc
+running install_data
+creating /adv_robotics/lab1/install/test_pkg/share/ament_index
+creating /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index
+creating /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+copying resource/test_pkg -> /adv_robotics/lab1/install/test_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /adv_robotics/lab1/install/test_pkg/share/test_pkg
+running install_egg_info
+Copying ../../build/test_pkg/test_pkg.egg-info to /adv_robotics/lab1/install/test_pkg/lib/python3.12/site-packages/test_pkg-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/adv_robotics/lab1/build/test_pkg/install.log'

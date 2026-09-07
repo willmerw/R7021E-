@@ -1,0 +1,20 @@
+[1.217s] Invoking command in '/adv_robotics/lab1/build/turtlebot_control': PYTHONPATH=/adv_robotics/lab1/build/turtlebot_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /adv_robotics/lab1/build/turtlebot_control/build --no-deps symlink_data
+[1.388s] running develop
+[1.476s] running egg_info
+[1.485s] writing turtlebot_control.egg-info/PKG-INFO
+[1.485s] writing dependency_links to turtlebot_control.egg-info/dependency_links.txt
+[1.485s] writing entry points to turtlebot_control.egg-info/entry_points.txt
+[1.485s] writing requirements to turtlebot_control.egg-info/requires.txt
+[1.485s] writing top-level names to turtlebot_control.egg-info/top_level.txt
+[1.503s] reading manifest file 'turtlebot_control.egg-info/SOURCES.txt'
+[1.504s] writing manifest file 'turtlebot_control.egg-info/SOURCES.txt'
+[1.513s] running build_ext
+[1.513s] Creating /adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages/turtlebot-control.egg-link (link to .)
+[1.513s] Installing controller_node script to /adv_robotics/lab1/install/turtlebot_control/lib/turtlebot_control
+[1.514s] Installing position_sender_node script to /adv_robotics/lab1/install/turtlebot_control/lib/turtlebot_control
+[1.514s] Installing wall_follow_node script to /adv_robotics/lab1/install/turtlebot_control/lib/turtlebot_control
+[1.514s] Installing wall_pt_node script to /adv_robotics/lab1/install/turtlebot_control/lib/turtlebot_control
+[1.514s] 
+[1.514s] Installed /adv_robotics/lab1/build/turtlebot_control
+[1.514s] running symlink_data
+[1.548s] Invoked command in '/adv_robotics/lab1/build/turtlebot_control' returned '0': PYTHONPATH=/adv_robotics/lab1/build/turtlebot_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab1/install/turtlebot_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /adv_robotics/lab1/build/turtlebot_control/build --no-deps symlink_data
