@@ -1,0 +1,12 @@
+prefix=/work/build/external_projects
+exec_prefix=${prefix}
+libdir=/work/build/external_projects/lib
+includedir=/work/build/external_projects/include
+
+Name: absl_pretty_function
+Description: Abseil pretty_function library
+URL: https://abseil.io/
+Version: 20250127
+Requires:
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX

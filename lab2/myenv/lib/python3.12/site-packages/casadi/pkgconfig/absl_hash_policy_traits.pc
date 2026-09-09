@@ -1,0 +1,12 @@
+prefix=/work/build/external_projects
+exec_prefix=${prefix}
+libdir=/work/build/external_projects/lib
+includedir=/work/build/external_projects/include
+
+Name: absl_hash_policy_traits
+Description: Abseil hash_policy_traits library
+URL: https://abseil.io/
+Version: 20250127
+Requires: absl_common_policy_traits = 20250127, absl_meta = 20250127
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX

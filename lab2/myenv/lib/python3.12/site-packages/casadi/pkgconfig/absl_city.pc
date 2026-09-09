@@ -1,0 +1,12 @@
+prefix=/work/build/external_projects
+exec_prefix=${prefix}
+libdir=/work/build/external_projects/lib
+includedir=/work/build/external_projects/include
+
+Name: absl_city
+Description: Abseil city library
+URL: https://abseil.io/
+Version: 20250127
+Requires: absl_config = 20250127, absl_core_headers = 20250127, absl_endian = 20250127
+Libs: -L${libdir}  -labsl_city 
+Cflags: -I${includedir} -DNOMINMAX

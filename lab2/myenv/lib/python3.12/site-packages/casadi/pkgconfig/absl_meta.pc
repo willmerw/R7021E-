@@ -1,0 +1,12 @@
+prefix=/work/build/external_projects
+exec_prefix=${prefix}
+libdir=/work/build/external_projects/lib
+includedir=/work/build/external_projects/include
+
+Name: absl_meta
+Description: Abseil meta library
+URL: https://abseil.io/
+Version: 20250127
+Requires: absl_type_traits = 20250127
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX
