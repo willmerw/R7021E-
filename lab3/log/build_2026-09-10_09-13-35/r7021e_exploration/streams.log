@@ -1,0 +1,32 @@
+[0.840s] Invoking command in '/adv_robotics/lab3/build/r7021e_exploration': PYTHONPATH=/adv_robotics/lab3/build/r7021e_exploration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab3/install/r7021e_exploration/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(myenv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /adv_robotics/lab3/build/r7021e_exploration/build --no-deps symlink_data
+[1.033s] running develop
+[1.130s] running egg_info
+[1.130s] creating r7021e_exploration.egg-info
+[1.140s] writing r7021e_exploration.egg-info/PKG-INFO
+[1.140s] writing dependency_links to r7021e_exploration.egg-info/dependency_links.txt
+[1.140s] writing entry points to r7021e_exploration.egg-info/entry_points.txt
+[1.140s] writing requirements to r7021e_exploration.egg-info/requires.txt
+[1.140s] writing top-level names to r7021e_exploration.egg-info/top_level.txt
+[1.141s] writing manifest file 'r7021e_exploration.egg-info/SOURCES.txt'
+[1.160s] reading manifest file 'r7021e_exploration.egg-info/SOURCES.txt'
+[1.160s] writing manifest file 'r7021e_exploration.egg-info/SOURCES.txt'
+[1.171s] running build_ext
+[1.171s] Creating /adv_robotics/lab3/install/r7021e_exploration/lib/python3.12/site-packages/r7021e-exploration.egg-link (link to .)
+[1.171s] Installing frontier_detector_node script to /adv_robotics/lab3/install/r7021e_exploration/lib/r7021e_exploration
+[1.174s] Installing navigation_node script to /adv_robotics/lab3/install/r7021e_exploration/lib/r7021e_exploration
+[1.174s] Installing path_follower_node script to /adv_robotics/lab3/install/r7021e_exploration/lib/r7021e_exploration
+[1.175s] 
+[1.175s] Installed /adv_robotics/lab3/build/r7021e_exploration
+[1.175s] running symlink_data
+[1.175s] creating /adv_robotics/lab3/install/r7021e_exploration/share/ament_index
+[1.175s] creating /adv_robotics/lab3/install/r7021e_exploration/share/ament_index/resource_index
+[1.175s] creating /adv_robotics/lab3/install/r7021e_exploration/share/ament_index/resource_index/packages
+[1.175s] symbolically linking /adv_robotics/lab3/build/r7021e_exploration/resource/r7021e_exploration -> /adv_robotics/lab3/install/r7021e_exploration/share/ament_index/resource_index/packages
+[1.175s] symbolically linking /adv_robotics/lab3/build/r7021e_exploration/package.xml -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration
+[1.175s] creating /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch
+[1.175s] symbolically linking /adv_robotics/lab3/build/r7021e_exploration/launch/exploration.launch.py -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch
+[1.175s] creating /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch/rviz
+[1.175s] symbolically linking /adv_robotics/lab3/build/r7021e_exploration/launch/rviz/exploration.rviz -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch/rviz
+[1.176s] creating /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/config
+[1.176s] symbolically linking /adv_robotics/lab3/build/r7021e_exploration/config/slam_config.yaml -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/config
+[1.203s] Invoked command in '/adv_robotics/lab3/build/r7021e_exploration' returned '0': PYTHONPATH=/adv_robotics/lab3/build/r7021e_exploration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/adv_robotics/lab3/install/r7021e_exploration/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(myenv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /adv_robotics/lab3/build/r7021e_exploration/build --no-deps symlink_data

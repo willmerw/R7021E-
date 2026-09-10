@@ -1,0 +1,30 @@
+running develop
+running egg_info
+creating r7021e_exploration.egg-info
+writing r7021e_exploration.egg-info/PKG-INFO
+writing dependency_links to r7021e_exploration.egg-info/dependency_links.txt
+writing entry points to r7021e_exploration.egg-info/entry_points.txt
+writing requirements to r7021e_exploration.egg-info/requires.txt
+writing top-level names to r7021e_exploration.egg-info/top_level.txt
+writing manifest file 'r7021e_exploration.egg-info/SOURCES.txt'
+reading manifest file 'r7021e_exploration.egg-info/SOURCES.txt'
+writing manifest file 'r7021e_exploration.egg-info/SOURCES.txt'
+running build_ext
+Creating /adv_robotics/lab3/install/r7021e_exploration/lib/python3.12/site-packages/r7021e-exploration.egg-link (link to .)
+Installing frontier_detector_node script to /adv_robotics/lab3/install/r7021e_exploration/lib/r7021e_exploration
+Installing navigation_node script to /adv_robotics/lab3/install/r7021e_exploration/lib/r7021e_exploration
+Installing path_follower_node script to /adv_robotics/lab3/install/r7021e_exploration/lib/r7021e_exploration
+
+Installed /adv_robotics/lab3/build/r7021e_exploration
+running symlink_data
+creating /adv_robotics/lab3/install/r7021e_exploration/share/ament_index
+creating /adv_robotics/lab3/install/r7021e_exploration/share/ament_index/resource_index
+creating /adv_robotics/lab3/install/r7021e_exploration/share/ament_index/resource_index/packages
+symbolically linking /adv_robotics/lab3/build/r7021e_exploration/resource/r7021e_exploration -> /adv_robotics/lab3/install/r7021e_exploration/share/ament_index/resource_index/packages
+symbolically linking /adv_robotics/lab3/build/r7021e_exploration/package.xml -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration
+creating /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch
+symbolically linking /adv_robotics/lab3/build/r7021e_exploration/launch/exploration.launch.py -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch
+creating /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch/rviz
+symbolically linking /adv_robotics/lab3/build/r7021e_exploration/launch/rviz/exploration.rviz -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/launch/rviz
+creating /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/config
+symbolically linking /adv_robotics/lab3/build/r7021e_exploration/config/slam_config.yaml -> /adv_robotics/lab3/install/r7021e_exploration/share/r7021e_exploration/config

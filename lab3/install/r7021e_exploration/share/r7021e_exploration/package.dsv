@@ -1,0 +1,9 @@
+source;share/r7021e_exploration/hook/pythonpath.ps1
+source;share/r7021e_exploration/hook/pythonpath.dsv
+source;share/r7021e_exploration/hook/pythonpath.sh
+source;share/r7021e_exploration/hook/ament_prefix_path.ps1
+source;share/r7021e_exploration/hook/ament_prefix_path.dsv
+source;share/r7021e_exploration/hook/ament_prefix_path.sh
+source;../../build/r7021e_exploration/share/r7021e_exploration/hook/pythonpath_develop.ps1
+source;../../build/r7021e_exploration/share/r7021e_exploration/hook/pythonpath_develop.dsv
+source;../../build/r7021e_exploration/share/r7021e_exploration/hook/pythonpath_develop.sh
