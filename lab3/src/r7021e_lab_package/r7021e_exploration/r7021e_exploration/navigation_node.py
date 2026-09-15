@@ -1,4 +1,4 @@
-code#!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import math
 from typing import Optional, Tuple, List
@@ -8,10 +8,11 @@ from rclpy.node import Node
 from rclpy.duration import Duration
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy
 
-from geometry_msgs.msg import PoseStamped, Quaternion
+from geometry_msgs.msg import PoseStamped, Quaternion,Point
 from nav_msgs.msg import Path, OccupancyGrid
 from builtin_interfaces.msg import Time as TimeMsg
 from rclpy.time import Time
+from visualization_msgs.msg import Marker
 
 import tf2_ros
 import numpy as np
@@ -36,8 +37,8 @@ def yaw_to_quaternion(yaw: float) -> Quaternion:
     return q
 
 class TreeNode:
-    def __init__(self, x, y, parent):
-        self.pt = np.array([x,y])
+    def __init__(self, pt, parent):
+        self.pt = np.array(pt)
         self.children = []
         self.parent = parent
 
@@ -63,15 +64,13 @@ class TreeNode:
         path = self.parent.get_path_to_root() + path
         return path
 
-
-
 class PathPlannerNode(Node):
     def __init__(self) -> None:
         super().__init__('path_planner_node')
 
         # Parameters
         self.declare_parameter('map_topic', 'map')
-        self.declare_parameter('frontier_topic', 'frontier')
+        self.declare_parameter('frontier_topic', 'frontiers')
         self.declare_parameter('path_topic', 'path')
         self.declare_parameter('global_frame', 'map')
         self.declare_parameter('base_frame', 'base_link')
@@ -90,20 +89,31 @@ class PathPlannerNode(Node):
         self.y = 0.0
         self.yaw = 0.0
 
-        self.node_max_dist = 1.0
+        self.node_max_dist = 0.2
         self.node_radius = 1.0 # for rrt-star
-        self.obs_fid = 0.1 #obstacle fidelity
+        self.obs_fid = 0.01 #obstacle fidelity
         self.goal_radius = 0.2
 
-        self.tree = TreeNode(self.x,self.y, None)
+        self.map_inflation = 3
+
+        self.tree = TreeNode([self.x,self.y], None)
+        self.tree_pts = []
+
+        self.last_goal = None
+        self.last_goal_rad = 0.1
 
         # Publishers (add path publisher here)
         self.path_pub = self.create_publisher(Path, 'path', 10)
 
+        self.tree_pub = self.create_publisher(Marker, 'rrt_tree', 10)
+        self.inf_map_pub = self.create_publisher(OccupancyGrid, 'inf_map', 10)
+        self.upd_frontier_pub = self.create_publisher(OccupancyGrid, 'upd_frontiers', 10)
+
+        self.goal_frontier_pub = self.create_publisher(Marker, 'goal_frontier', 10)
+
         # Subscribers
         self.map_sub = self.create_subscription(OccupancyGrid, map_topic, self._on_map, default_qos)
         self.frontier_sub = self.create_subscription(OccupancyGrid, frontier_topic, self._on_frontier, default_qos)
-        self.create_subscription(Odometry, '/odom', self.odom_callback, 10)
         # TF
         self.tf_buffer = tf2_ros.Buffer(cache_time=Duration(seconds=10.0))
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
@@ -124,9 +134,6 @@ class PathPlannerNode(Node):
         """
         tgt = target_frame or self.global_frame
         src = source_frame or self.base_frame
-        self.plan_path((x, y, yaw),
-                              msg,
-                              self._latest_frontier)
         try:
             transform = self.tf_buffer.lookup_transform(
                 tgt, src, Time(), timeout=self.tf_timeout
@@ -172,27 +179,36 @@ class PathPlannerNode(Node):
         """
         Use this function to plan the path
         """
+        if frontier_msg is None:
+            return None
 
+        map_msg, frontier_msg = self.inflate_map(map_msg,frontier_msg)
+        self.inf_map_pub.publish(map_msg)
+        self.upd_frontier_pub.publish(frontier_msg)
+        self.tree = TreeNode([start[0],start[1]], None)
+        self.tree_pts = []
         map_res = map_msg.info.resolution
         map_height = map_msg.info.height * map_res
         map_width = map_msg.info.width * map_res
         map_values = map_msg.data
+        origin_x = map_msg.info.origin.position.x
+        origin_y = map_msg.info.origin.position.y
 
-        w_ig = 1.0 #information gain weight
-        w_d = 1.0 #distace weight
-        w_th = 1.0 #heading weight
-
-        frontier_grid = np.array(frontier_msg, dtype=np.int16).reshape(
+        frontier_grid = np.array(frontier_msg.data, dtype=np.int16).reshape(
             (frontier_msg.info.height, frontier_msg.info.width))
 
         rows, cols = np.where(frontier_grid == 100)
+        map_grid = np.array(map_msg.data, dtype=np.int16).reshape(
+            (map_msg.info.height, map_msg.info.width))
 
-        origin_x = msg.info.origin.position.x
-        origin_y = msg.info.origin.position.y
-        x_coords = origin_x + (cols + 0.5) * resolution
-        y_coords = origin_y + (rows + 0.5) * resolution
-        points = np.column_stack((x_coords, y_coords))
-        db = DBSCAN(eps=eps, min_samples=min_samples).fit(points)
+        frontier_res = frontier_msg.info.resolution
+        f_origin_x = frontier_msg.info.origin.position.x
+        f_origin_y = frontier_msg.info.origin.position.y
+        frontiers_x = f_origin_x + (cols + 0.5) * frontier_res
+        frontiers_y = f_origin_y + (rows + 0.5) * frontier_res
+        points = np.column_stack((frontiers_x, frontiers_y))
+
+        db = DBSCAN(eps=0.5, min_samples=3).fit(points)
         labels = db.labels_
 
         cluster_count = {}
@@ -200,61 +216,274 @@ class PathPlannerNode(Node):
         for label in labels:
             if label == -1:
                 continue
-            if label not in labels:
-                cluster_count[label] = 1
+            if label not in cluster_count.keys():
+                cluster_count[str(label)] = 1
                 continue
-            cluster_count[label] += 1
+            cluster_count[str(label)] += 1
 
         best_c = -1
         best_cluster = -1
         for label in cluster_count.keys():
+            label = str(label)
             count = cluster_count[label]
             if cluster_count[label] > best_c:
                 best_c = count
-                best_cluster = label
+                best_cluster = int(label)
+
+        label_pts = []
+        for pt, label in zip(points,labels):
+            if int(label) == int(best_cluster):
+                label_pts.append(pt)
+
+        label_pts = np.array(label_pts)
+        goal_pt = np.mean(label_pts, axis=0)
+
+        self.publish_marker(goal_pt)
 
 
-        goal_pt = np.array([])
+        cell_x = int((goal_pt[0]-origin_x)/map_res)
+        cell_y = int((goal_pt[1]-origin_y)/map_res)
 
+        if map_grid[cell_y,cell_x] >= 50:
+            closest_free_d = float('inf')
+            rows, cols = np.where(map_grid < 50)
+            for row,col in zip(rows, cols):
+                ptx = origin_x + (col + 0.5) * map_res
+                pty = origin_y + (row + 0.5) * map_res
+                pt = np.array([ptx,pty])
+                d = np.linalg.norm(pt-goal_pt)
+                if d < closest_free_d:
+                    closest_free = pt
+                    closest_free_d = d
+            goal_pt = closest_free
+
+        if self.last_goal is not None:
+            d = np.linalg.norm(goal_pt - np.array(self.last_goal))
+            if d < self.last_goal_rad:
+                return None
+        self.last_goal = goal_pt
+        start_pos = np.array([start[0],start[1]])
+        obs = self.check_obs(start_pos,goal_pt,map_msg)
+
+        if not obs:
+            path_msg = Path()
+            path = [start_pos,goal_pt]
+            path_msg.header.frame_id = 'map'
+            path_pt_ls = []
+            for pt in path:
+                path_pt = PoseStamped()
+                path_pt.header.frame_id = 'map'
+                path_pt.pose.position.x = pt[0]
+                path_pt.pose.position.y = pt[1]
+                path_pt_ls.append(path_pt)
+            path_msg.poses = path_pt_ls
+            self.path_pub.publish(path_msg)
+            return path
+
+        nodes_in_goal = []
         while True:
-            r_x = np.random.rand(1) * map_height
-            r_y = np.random.rand(1) * map_width
-            random_pt = np.array([r_x, r_y])
+            r_x = np.random.uniform(origin_x, origin_x+map_width)
+            r_y = np.random.uniform(origin_y, origin_y+map_height)
+            random_pt = np.array([r_x, r_y], dtype=float)
 
-            closest_node = np.array(self.tree.get_closest_node(random_pt))
-
-            d = random_pt - closest_node.pt
+            _, closest_node = self.tree.get_closest_node(random_pt)
+            d = np.array(random_pt - closest_node.pt)
             d_norm = np.linalg.norm(d)
 
-            increment = d/d_norm)*self.obs_fid
-            check_pt = closest_node.pt + increment
-
-            obs = False
-            while np.linalg.norm(check_pt - closest_node.pt) < d:
-                check_pt_cell = int(check_pt // map_res)
-                grid_index = check_pt_cell[1] * map_msg.info.width + check_pt_cell[0]
-                if map_values[grid_index] >= 0.5:
-                    obs = True
-                    break
-                check_pt += increment
+            obs = self.check_obs(closest_node.pt,random_pt,map_msg)
 
             if obs:
                 continue
 
-            if d_norm < self.max_dist:
+            if d_norm < self.node_max_dist:
                 new_node = TreeNode(pt=random_pt,parent=closest_node)
+                self.tree_pts.append((closest_node.pt,random_pt))
+
             else:
-                new_pt = (d/d_norm) * self.node_max_dist
+                new_pt = closest_node.pt + ((d/d_norm) * self.node_max_dist)
                 new_node = TreeNode(pt=new_pt,parent=closest_node)
+                self.tree_pts.append((closest_node.pt, new_pt))
 
             if np.linalg.norm(new_node.pt-goal_pt) < self.goal_radius:
-                goal_node = TreeNode(pt=goal_pt,parent=closest_node)
-                path = goal_node.get_path_to_root()
+                goal_node = new_node
+                self.publish_tree(self.tree_pts)
                 break
 
+            self.publish_tree(self.tree_pts)
             closest_node.children.append(new_node)
 
+        path = goal_node.get_path_to_root()
+        pose = self.get_robot_pose()
+        x,y,yaw = pose
+        pos = np.array([x,y])
+        closest = np.linalg.norm(path[0]-pos)
+        for i,pt in enumerate(path[1:]):
+            d = np.linalg.norm(pt-pos)
+            if d<closest:
+                continue
+            else:
+                path = path[i:]
+                break
+        path = self.optimize_path(path,map_msg)
+
+        path_msg = Path()
+        path_msg.header.frame_id = 'map'
+        path_pt_ls = []
+        for pt in path:
+            path_pt = PoseStamped()
+            path_pt.header.frame_id = 'map'
+            path_pt.pose.position.x = pt[0]
+            path_pt.pose.position.y = pt[1]
+            path_pt_ls.append(path_pt)
+        path_msg.poses = path_pt_ls
+        self.path_pub.publish(path_msg)
+
+        return path
+
         return None
+
+    def check_obs(self, start, goal,map_msg):
+        map_res = map_msg.info.resolution
+        map_values = map_msg.data
+        origin_x = map_msg.info.origin.position.x
+        origin_y = map_msg.info.origin.position.y
+
+        d = goal - start
+        d_norm = np.linalg.norm(d)
+
+        increment = (d/d_norm)*self.obs_fid
+        check_pt = start + increment
+        obs = False
+        while np.linalg.norm(check_pt - start) < d_norm:
+            cell_x = int((check_pt[0]-origin_x)/map_res)
+            cell_y = int((check_pt[1]-origin_y)/map_res)
+            grid_index = int(cell_y * map_msg.info.width + cell_x)
+            if map_values[grid_index] >= 0.5:
+                obs = True
+                break
+            check_pt += increment
+        return obs
+
+    def publish_tree(self, tree_edges):
+
+            marker = Marker()
+            marker.header.frame_id = "map"
+            marker.header.stamp = self.get_clock().now().to_msg()
+            marker.ns = "rrt_tree"
+            marker.id = 0
+            marker.type = Marker.LINE_LIST
+            marker.action = Marker.ADD
+
+            marker.scale.x = 0.02
+            marker.color.r = 0.0
+            marker.color.g = 1.0
+            marker.color.b = 0.0
+            marker.color.a = 1.0
+
+            for parent, child in tree_edges:
+                p_start = Point(x=float(parent[0]), y=float(parent[1]), z=0.0)
+                p_end = Point(x=float(child[0]), y=float(child[1]), z=0.0)
+                marker.points.append(p_start)
+                marker.points.append(p_end)
+
+            self.tree_pub.publish(marker)
+
+    def publish_marker(self, pt):
+        marker = Marker()
+        marker.header.frame_id = 'map'
+        marker.header.stamp = self.get_clock().now().to_msg()
+
+        marker.ns = 'goal_frontier'
+        marker.id = 0
+        marker.type = Marker.SPHERE
+        marker.action = Marker.ADD
+
+        marker.pose.position.x = float(pt[0])
+        marker.pose.position.y = float(pt[1])
+        marker.pose.position.z = 0.0
+        marker.pose.orientation.w = 1.0
+
+        marker.scale.x = 0.2
+        marker.scale.y = 0.2
+        marker.scale.z = 0.2
+
+        marker.color.r = 1.0
+        marker.color.g = 0.0
+        marker.color.b = 0.0
+        marker.color.a = 1.0
+
+        self.goal_frontier_pub.publish(marker)
+
+    def optimize_path(self, path, map_msg):
+        i = 0
+        while (i+2) < len(path)-1:
+            child = path[i]
+            gp = path[i+2]
+            obs = self.check_obs(child,gp,map_msg)
+
+            if not obs:
+                path.pop(i+1)
+            else:
+                i+=1
+
+        i = 0
+        while (i+2) < len(path)-1:
+            child = path[i]
+            middle = path[i+1]
+            gp = path[i+2]
+
+            step_size = 0.1
+
+            c_m = np.array(middle-child)
+            c_md = np.linalg.norm(c_m)
+            c_m = (c_m/c_md)*step_size
+
+
+            gp_m = np.array(middle-gp)
+            gp_md = np.linalg.norm(gp_m)
+            gp_m = (gp_m/gp_md)*step_size
+
+            child_n = child.copy()
+            gp_n = gp.copy()
+
+            while True:
+                child_n += c_m
+                gp_n += gp_m
+                obs = self.check_obs(child_n,gp_n,map_msg)
+                if not obs:
+                    path.pop(i+1)
+                    path[i+1:i+1] = [child_n, gp_n]
+
+                    break
+            i = i+2
+        segment_path = []
+        for i in range(len(path)-1):
+            segment = list(np.linspace(path[i],path[i+1],5))
+            segment_path = segment_path + segment
+        path = segment_path
+
+        return path
+
+    def inflate_map(self,map_msg, frontier_msg):
+        map_grid = np.array(map_msg.data, dtype=np.int16).reshape(
+        (map_msg.info.height, map_msg.info.width))
+
+        frontier_grid = np.array(frontier_msg.data, dtype=np.int16).reshape(
+        (frontier_msg.info.height, frontier_msg.info.width))
+
+        rows, cols = np.where(map_grid >= 50)
+        infl = self.map_inflation
+        for row,col in zip(rows,cols):
+            for i in range(-infl,infl):
+                for j in range(-infl,infl):
+                    try:
+                        map_grid[row+i][col+j] = 100
+                        frontier_grid[row+i][col+j] = 0
+                    except Exception as e:
+                        continue
+        map_msg.data = map_grid.ravel().tolist()
+        frontier_msg.data = frontier_grid.ravel().tolist()
+        return map_msg, frontier_msg
 
 
 def main() -> None:

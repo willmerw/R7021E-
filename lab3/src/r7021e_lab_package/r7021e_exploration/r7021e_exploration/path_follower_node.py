@@ -6,6 +6,7 @@ import math
 import rclpy
 from rclpy.node import Node
 from nav_msgs.msg import Path
+from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import TwistStamped, TransformStamped
 from tf2_ros import Buffer, TransformListener, LookupException, ConnectivityException, ExtrapolationException
 
