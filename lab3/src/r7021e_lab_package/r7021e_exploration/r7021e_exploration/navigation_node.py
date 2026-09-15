@@ -90,14 +90,15 @@ class PathPlannerNode(Node):
         self.yaw = 0.0
 
         self.node_max_dist = 0.2
-        self.node_radius = 1.0 # for rrt-star
         self.obs_fid = 0.01 #obstacle fidelity
         self.goal_radius = 0.2
 
-        self.map_inflation = 3
+        self.map_inflation = 4
 
         self.tree = TreeNode([self.x,self.y], None)
         self.tree_pts = []
+
+        self.goal_reached = True
 
         self.last_goal = None
         self.last_goal_rad = 0.1
@@ -121,6 +122,7 @@ class PathPlannerNode(Node):
         # State
         self._latest_map: Optional[OccupancyGrid] = None
         self._latest_frontier: Optional[OccupancyGrid] = None
+        self.latest_path = None
 
         self.get_logger().info('PathPlannerNode initialized.')
 
@@ -163,12 +165,27 @@ class PathPlannerNode(Node):
             return
 
         x, y, yaw = pose
-        path = self.plan_path((x, y, yaw),
-                              msg,
-                              self._latest_frontier)
+        if self.goal_reached:
+            path = self.plan_path((x, y, yaw),
+                                msg,
+                                self._latest_frontier)
+            self.latest_path = path
+            if path is None:
+                return
 
-        if path is None:
+
+        pos = np.array([x,y])
+
+
+        if self.latest_path is None:
             return
+        path = self.latest_path
+        if np.linalg.norm(path[-1]-pos) <= self.goal_radius:
+            self.goal_reached = True
+        else:
+            self.goal_reached = False
+
+
 
     # ----------------- Planning -----------------
 
@@ -183,67 +200,32 @@ class PathPlannerNode(Node):
             return None
 
         map_msg, frontier_msg = self.inflate_map(map_msg,frontier_msg)
+
         self.inf_map_pub.publish(map_msg)
         self.upd_frontier_pub.publish(frontier_msg)
+
         self.tree = TreeNode([start[0],start[1]], None)
         self.tree_pts = []
+
         map_res = map_msg.info.resolution
         map_height = map_msg.info.height * map_res
         map_width = map_msg.info.width * map_res
         map_values = map_msg.data
         origin_x = map_msg.info.origin.position.x
         origin_y = map_msg.info.origin.position.y
-
-        frontier_grid = np.array(frontier_msg.data, dtype=np.int16).reshape(
-            (frontier_msg.info.height, frontier_msg.info.width))
-
-        rows, cols = np.where(frontier_grid == 100)
         map_grid = np.array(map_msg.data, dtype=np.int16).reshape(
             (map_msg.info.height, map_msg.info.width))
 
-        frontier_res = frontier_msg.info.resolution
-        f_origin_x = frontier_msg.info.origin.position.x
-        f_origin_y = frontier_msg.info.origin.position.y
-        frontiers_x = f_origin_x + (cols + 0.5) * frontier_res
-        frontiers_y = f_origin_y + (rows + 0.5) * frontier_res
-        points = np.column_stack((frontiers_x, frontiers_y))
-
-        db = DBSCAN(eps=0.5, min_samples=3).fit(points)
-        labels = db.labels_
-
-        cluster_count = {}
-
-        for label in labels:
-            if label == -1:
-                continue
-            if label not in cluster_count.keys():
-                cluster_count[str(label)] = 1
-                continue
-            cluster_count[str(label)] += 1
-
-        best_c = -1
-        best_cluster = -1
-        for label in cluster_count.keys():
-            label = str(label)
-            count = cluster_count[label]
-            if cluster_count[label] > best_c:
-                best_c = count
-                best_cluster = int(label)
-
-        label_pts = []
-        for pt, label in zip(points,labels):
-            if int(label) == int(best_cluster):
-                label_pts.append(pt)
-
-        label_pts = np.array(label_pts)
-        goal_pt = np.mean(label_pts, axis=0)
+        goal_pt = self.extract_frontier(frontier_msg)
+        if goal_pt is None:
+            return
 
         self.publish_marker(goal_pt)
-
 
         cell_x = int((goal_pt[0]-origin_x)/map_res)
         cell_y = int((goal_pt[1]-origin_y)/map_res)
 
+        #check if goal is in occupied space
         if map_grid[cell_y,cell_x] >= 50:
             closest_free_d = float('inf')
             rows, cols = np.where(map_grid < 50)
@@ -257,14 +239,16 @@ class PathPlannerNode(Node):
                     closest_free_d = d
             goal_pt = closest_free
 
+        # check if new goal is very close to previous goal
         if self.last_goal is not None:
             d = np.linalg.norm(goal_pt - np.array(self.last_goal))
             if d < self.last_goal_rad:
                 return None
         self.last_goal = goal_pt
+
+        # check if direct path to goal exists
         start_pos = np.array([start[0],start[1]])
         obs = self.check_obs(start_pos,goal_pt,map_msg)
-
         if not obs:
             path_msg = Path()
             path = [start_pos,goal_pt]
@@ -280,8 +264,9 @@ class PathPlannerNode(Node):
             self.path_pub.publish(path_msg)
             return path
 
-        nodes_in_goal = []
-        while True:
+        # RRT
+        nodes_near_goal = []
+        while len(nodes_near_goal) < 3:
             r_x = np.random.uniform(origin_x, origin_x+map_width)
             r_y = np.random.uniform(origin_y, origin_y+map_height)
             random_pt = np.array([r_x, r_y], dtype=float)
@@ -303,16 +288,28 @@ class PathPlannerNode(Node):
                 new_pt = closest_node.pt + ((d/d_norm) * self.node_max_dist)
                 new_node = TreeNode(pt=new_pt,parent=closest_node)
                 self.tree_pts.append((closest_node.pt, new_pt))
+            if np.linalg.norm(closest_node.pt-goal_pt) < self.goal_radius:
+                continue
 
             if np.linalg.norm(new_node.pt-goal_pt) < self.goal_radius:
-                goal_node = new_node
+                nodes_near_goal.append(new_node)
                 self.publish_tree(self.tree_pts)
                 break
-
-            self.publish_tree(self.tree_pts)
             closest_node.children.append(new_node)
 
-        path = goal_node.get_path_to_root()
+        shortest_path = float('inf')
+        for goal_node in nodes_near_goal:
+            path = goal_node.get_path_to_root()
+            path_len = 0
+            for i in range(len(path)-1):
+                seg_len = np.linalg.norm(path[i]-path[i+1])
+                path_len += seg_len
+            if path_len < shortest_path:
+                best_path = path.copy()
+
+        path = best_path
+
+        # trim path to avoid turning around
         pose = self.get_robot_pose()
         x,y,yaw = pose
         pos = np.array([x,y])
@@ -324,8 +321,8 @@ class PathPlannerNode(Node):
             else:
                 path = path[i:]
                 break
-        path = self.optimize_path(path,map_msg)
 
+        path = self.optimize_path(path,map_msg)
         path_msg = Path()
         path_msg.header.frame_id = 'map'
         path_pt_ls = []
@@ -342,7 +339,7 @@ class PathPlannerNode(Node):
 
         return None
 
-    def check_obs(self, start, goal,map_msg):
+    def check_obs(self, start, goal, map_msg):
         map_res = map_msg.info.resolution
         map_values = map_msg.data
         origin_x = map_msg.info.origin.position.x
@@ -435,18 +432,21 @@ class PathPlannerNode(Node):
             step_size = 0.1
 
             c_m = np.array(middle-child)
+            d1 = np.linalg.norm(c_m)
             c_md = np.linalg.norm(c_m)
             c_m = (c_m/c_md)*step_size
 
 
             gp_m = np.array(middle-gp)
+            d2 = np.linalg.norm(gp_m)
             gp_md = np.linalg.norm(gp_m)
             gp_m = (gp_m/gp_md)*step_size
 
             child_n = child.copy()
             gp_n = gp.copy()
 
-            while True:
+
+            while (np.linalg.norm(child_n-child) < d1 and np.linalg.norm(gp_n-gp) < d2):
                 child_n += c_m
                 gp_n += gp_m
                 obs = self.check_obs(child_n,gp_n,map_msg)
@@ -458,7 +458,8 @@ class PathPlannerNode(Node):
             i = i+2
         segment_path = []
         for i in range(len(path)-1):
-            segment = list(np.linspace(path[i],path[i+1],5))
+            segment_length = np.linalg.norm(path[i]-path[i+1])
+            segment = list(np.linspace(path[i],path[i+1],int(segment_length/0.1)))
             segment_path = segment_path + segment
         path = segment_path
 
@@ -472,18 +473,65 @@ class PathPlannerNode(Node):
         (frontier_msg.info.height, frontier_msg.info.width))
 
         rows, cols = np.where(map_grid >= 50)
-        infl = self.map_inflation
+
         for row,col in zip(rows,cols):
+            infl = self.map_inflation
             for i in range(-infl,infl):
                 for j in range(-infl,infl):
                     try:
                         map_grid[row+i][col+j] = 100
+                    except Exception as e:
+                        continue
+            infl = infl+2
+            for i in range(-infl,infl):
+                for j in range(-infl,infl):
+                    try:
                         frontier_grid[row+i][col+j] = 0
                     except Exception as e:
                         continue
         map_msg.data = map_grid.ravel().tolist()
         frontier_msg.data = frontier_grid.ravel().tolist()
         return map_msg, frontier_msg
+
+    def extract_frontier(self, frontier_msg):
+        frontier_grid = np.array(frontier_msg.data, dtype=np.int16).reshape(
+            (frontier_msg.info.height, frontier_msg.info.width))
+
+        rows, cols = np.where(frontier_grid == 100)
+
+        frontier_res = frontier_msg.info.resolution
+
+        f_origin_x = frontier_msg.info.origin.position.x
+        f_origin_y = frontier_msg.info.origin.position.y
+        frontiers_x = f_origin_x + (cols + 0.5) * frontier_res
+        frontiers_y = f_origin_y + (rows + 0.5) * frontier_res
+        points = np.column_stack((frontiers_x, frontiers_y))
+
+        mean_pt = np.mean(points,axis=0)
+
+        pose = self.get_robot_pose()
+        x,y,yaw = pose
+        pos = np.array([x,y])
+
+        w_sim = 3.0
+        w_dist = 0.5
+        w_mean_dist = 1.0
+        scores = []
+        for pt in points:
+            cosine_sim = np.dot(pt, pos) / (np.linalg.norm(pos) * np.linalg.norm(pt))
+            dist = np.linalg.norm(pt-pos)
+            dist_mean = np.linalg.norm(pt-mean_pt)
+
+            score = w_sim * cosine_sim - w_dist*dist - w_mean_dist * dist_mean
+            scores.append(score)
+        if len(scores) >= 1:
+            idx = scores.index(max(scores))
+            best_pt = points[idx]
+        else:
+            return None
+
+
+        return best_pt
 
 
 def main() -> None:
