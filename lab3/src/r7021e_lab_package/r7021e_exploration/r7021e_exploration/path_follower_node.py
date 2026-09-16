@@ -9,7 +9,7 @@ from nav_msgs.msg import Path
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import TwistStamped, TransformStamped
 from tf2_ros import Buffer, TransformListener, LookupException, ConnectivityException, ExtrapolationException
-
+import numpy as np
 
 class PathFollower(Node):
     def __init__(self):
@@ -100,6 +100,12 @@ class PathFollower(Node):
         vel_msg.twist.angular.z = dif_ang * self.kp_yaw
         if abs(vel_msg.twist.angular.z) > self.max_w:
             vel_msg.twist.angular.z = math.copysign(self.max_w, vel_msg.twist.angular.z)
+
+        last_pt = np.array(self.path[-1])
+        pos = np.array(self.robot_pos)
+        if np.linalg.norm(last_pt-pos) < 0.1:
+            vel_msg.twist.linear.x = 0.0
+            vel_msg.twist.angular.z = 0.0
 
         self.vel_pub.publish(vel_msg)
 

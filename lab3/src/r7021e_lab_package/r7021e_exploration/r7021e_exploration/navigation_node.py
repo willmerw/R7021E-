@@ -175,13 +175,13 @@ class PathPlannerNode(Node):
 
 
         pos = np.array([x,y])
-
-
         if self.latest_path is None:
             return
+
         path = self.latest_path
         if np.linalg.norm(path[-1]-pos) <= self.goal_radius:
             self.goal_reached = True
+
         else:
             self.goal_reached = False
 
@@ -204,9 +204,6 @@ class PathPlannerNode(Node):
         self.inf_map_pub.publish(map_msg)
         self.upd_frontier_pub.publish(frontier_msg)
 
-        self.tree = TreeNode([start[0],start[1]], None)
-        self.tree_pts = []
-
         map_res = map_msg.info.resolution
         map_height = map_msg.info.height * map_res
         map_width = map_msg.info.width * map_res
@@ -215,6 +212,29 @@ class PathPlannerNode(Node):
         origin_y = map_msg.info.origin.position.y
         map_grid = np.array(map_msg.data, dtype=np.int16).reshape(
             (map_msg.info.height, map_msg.info.width))
+
+        cell_x = int((start[0]-origin_x)/map_res)
+        cell_y = int((start[1]-origin_y)/map_res)
+        pos = np.array([start[0],start[1]])
+        #check if robot is in occupied space
+        if map_grid[cell_y,cell_x] >= 50:
+            closest_free_d = float('inf')
+            rows, cols = np.where(map_grid < 50)
+            for row,col in zip(rows, cols):
+                ptx = origin_x + (col + 0.5) * map_res
+                pty = origin_y + (row + 0.5) * map_res
+                pt = np.array([ptx,pty])
+                d = np.linalg.norm(pt-pos)
+                if d < closest_free_d:
+                    closest_free = pt
+                    closest_free_d = d
+            self.tree = TreeNode([closest_free[0],closest_free[1]], None)
+        else:
+            self.tree = TreeNode([start[0],start[1]], None)
+
+        self.tree_pts = []
+
+
 
         goal_pt = self.extract_frontier(frontier_msg)
         if goal_pt is None:
