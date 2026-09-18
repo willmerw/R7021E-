@@ -93,7 +93,7 @@ class PathPlannerNode(Node):
         self.obs_fid = 0.01 #obstacle fidelity
         self.goal_radius = 0.2
 
-        self.map_inflation = 4
+        self.map_inflation = 3
 
         self.tree = TreeNode([self.x,self.y], None)
         self.tree_pts = []
@@ -375,7 +375,7 @@ class PathPlannerNode(Node):
             cell_x = int((check_pt[0]-origin_x)/map_res)
             cell_y = int((check_pt[1]-origin_y)/map_res)
             grid_index = int(cell_y * map_msg.info.width + cell_x)
-            if map_values[grid_index] >= 0.5:
+            if map_values[grid_index] >= 0.5 or map_values[grid_index] == -1:
                 obs = True
                 break
             check_pt += increment
@@ -532,13 +532,15 @@ class PathPlannerNode(Node):
         pose = self.get_robot_pose()
         x,y,yaw = pose
         pos = np.array([x,y])
+        heading = np.array([np.cos(yaw),np.sin(yaw)])
 
         w_sim = 3.0
         w_dist = 0.5
         w_mean_dist = 1.0
         scores = []
         for pt in points:
-            cosine_sim = np.dot(pt, pos) / (np.linalg.norm(pos) * np.linalg.norm(pt))
+            dpt = pt - pos
+            cosine_sim = np.dot(dpt, heading) / (np.linalg.norm(heading) * np.linalg.norm(dpt))
             dist = np.linalg.norm(pt-pos)
             dist_mean = np.linalg.norm(pt-mean_pt)
 
