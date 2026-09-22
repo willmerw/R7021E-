@@ -1,0 +1,79 @@
+# Grid-FastSLAM 2.0 parameters (R7021E Lab 4).
+#
+# These are the knobs the lab asks you to tune. Every field of
+# r7021e_fast_slam/config.py is a declared ROS parameter, so anything not
+# listed here can still be added to this file if you need it.
+
+grid_slam_node:
+  ros__parameters:
+    ## --- particle filter ---
+    num_particles: 1
+    seed: 1
+    use_measurement_update: false       # false: occupancy mapping only
+    use_improved_proposal: true        # false: FastSLAM 1.0 baseline
+    resample_threshold: 0.5            # resample when N_eff < threshold * N
+    resample_every_step: true
+
+    ## --- motion model: [sd_rot1, sd_trans, sd_rot2] in [rad, m, rad] ---
+    ## The filter's BELIEF about how noisy the odometry is, PER FILTER STEP.
+    odometry_sigmas: [0.0, 0.0, 0.0]
+    ## Simulation only: noise ADDED to the odometry before the filter sees
+    ## it. Opposite role to the line above. SET TO ZEROS ON HARDWARE, where
+    ## the wheel odometry is already as bad as it is going to get.
+    odom_noise_sigma: [0.001, 0.001, 0.001]
+
+    ## --- occupancy grid (tune in Task 1) ---
+    map_size_m: 5.0                       # square, centred on the start pose
+    map_resolution: 0.01                   # meters per cell
+    p_free: 0.2                            # inverse sensor model, free evidence
+    p_occ: 0.8                             # inverse sensor model, hit evidence
+    hit_window_cells: 2.0                  # number of cells around the hit to consider
+    log_odds_limit: 2.0                    # clamp to [-limit, +limit]
+    ## The prior p0 is fixed at 0.5 in code and is deliberately not tunable.
+    use_clamping: true
+
+    ## --- measurement model (likelihood field) (tuned) ---
+    ## range_max is read from LaserScan.range_max; do not set it here.
+    ## Beam subsampling is off by default; the two strides below turn it on.
+    z_hit: 0.8                     # weight of the hit measurement component
+    z_rand: 0.2                    # weight of the random measurement component
+    sigma_hit: 0.10                # standard deviation of the hit measurement component
+    max_dist: 0.10                 # maximum distance for the likelihood field
+    occ_thresh: 0.6                # p above which a cell is occupied
+    ## Beam subsampling stride for the likelihood field.
+    likelihood_stride: 1
+
+    ## --- scan matching (tune in Task 7) ---
+    ## Scan matching window parameters. Defines the search window for the scan
+    ## matcher. Keep xy at two cells or more and theta at two "cells" or more
+    ## (one cell at the far end of a beam, map_resolution / range_max rad):
+    ## candidates inside one cell read the same probabilities and cannot be
+    ## told apart, so a narrower window searches nothing.
+    scan_match_window_xy: 0.0
+    scan_match_window_theta: 0.0
+    match_score_min: 0.0          # minimum score for a successful scan match
+    ## Beam subsampling stride for scan matching.
+    scan_match_stride: 1 # leave at 1 for full scan
+    ## --- improved proposal ---
+    num_candidates: 3                # K
+    ## Proposal window parameters. Defines the search window for the improved
+    ## proposal. Same floor as above, one cell rather than two.
+    proposal_window_xy: 0.0
+    proposal_window_theta: 0.0
+
+    ## --- update gating (tuned) ---
+    ## Step at the scanner's rate. The two minimums below are now only a
+    ## parked-robot guard, so they sit at the smallest motion worth a step.
+    update_max_rate: 10.0        # Hz, 0 for no limit
+    update_min_dist: 0.05        # meters
+    update_min_angle: 0.0175     # rad
+    scan_queue_depth: 1          # depth of the scan queue
+
+    ## --- run log ---
+    ## The node writes <log_dir>/<run_name>.npz on shutdown. Every report
+    ## figure is built from those files by plot_results.py, so give each run
+    ## in a sweep its own name. A relative log_dir is resolved against the
+    ## PACKAGE directory, not your shell's, so runs land in the same place
+    ## whatever directory you launched from. An absolute path is used as given.
+    log_dir: 'runs'
+    run_name: 'mapping_only'
