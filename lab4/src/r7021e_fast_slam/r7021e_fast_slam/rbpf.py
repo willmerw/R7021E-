@@ -93,7 +93,56 @@ class GridFastSLAM:
             6. Integrate the scan into the particle's map.
             7. Normalize weights and resample if necessary.
         """
-        ## Sketch of one step. 
+
+        ## Sketch of one step.
+        ##
+        cfg = self.cfg
+        timings = {'scan_match': 0.0, 'likelihood': 0.0, 'map_integrate': 0.0}
+        n_fallback = 0
+        #
+        # Split the beams before the loop, not inside it -- the same arrays
+        # are reused by every particle:
+        hits = ranges < cfg.range_max - 1e-6  # (a max-range return
+        #              says "nothing out to here"; it maps free space but
+        #              must never score a pose)
+        ep_hit   = endpoints[hits]
+        ep_match = ep_hit[::cfg.scan_match_stride]   #(for the matcher)
+        ep_w     = ep_hit[::cfg.likelihood_stride]   #(for the weight)
+        #
+        for p in self.particles:
+            x_bar = sample_motion_model_odometry(u, p.pose[None, :], cfg.odometry_sigmas, self.rng)[0]
+            if cfg.use_improved_proposal:
+                t_sm_start = perf_counter()
+                x_star, score = scan_match(x_bar, p.grid, ep_match, cfg,)
+                timings['scan_match'] += perf_counter() - t_sm_start
+                #time it into timings['scan_match']
+            else:
+                #FastSLAM 1.0 baseline:
+                x_star, score = x_bar, -np.inf
+            if score >= cfg.match_score_min:
+                log_eta, mu, sigma = improved_proposal(x_star, p.pose, u, ep_w, p.grid, cfg)
+                x_new = self.rng.multivariate_normal(mu, sigma) #wrap_angle the heading
+                x_new[2] = wrap_angle(x_new[2])
+                p.log_weight += log_eta
+            else:
+                x_new = x_bar
+                t_lik_start = perf_counter()
+                p.log_weight += measurement_log_likelihood(x_bar, ep_w, p.grid, cfg)[0]
+                timings['likelihood'] += perf_counter() - t_lik_start
+                if cfg.use_improved_proposal is True:
+                    n_fallback += 1
+            p.pose = x_new
+            t_map_start = perf_counter()
+            p.grid.integrate_scan(x_new, endpoints, ranges, cfg.range_max)
+            timings['map_integrate'] += perf_counter() - t_map_start
+
+        weights, n_eff = self._normalize()
+        best_idx = int(np.argmax(weights)) # Calculate before resampling
+        resampled = self._maybe_resample(weights, n_eff)
+
+        return StepInfo(n_eff=n_eff, resampled=resampled, n_fallback=n_fallback, timings=timings, best_index=best_idx)
+
+        ## Sketch of one step.
         ##
         ## cfg = self.cfg
         ## timings = {'scan_match': 0.0, 'likelihood': 0.0, 'map_integrate': 0.0}
@@ -101,7 +150,7 @@ class GridFastSLAM:
         ##
         ## Split the beams before the loop, not inside it -- the same arrays
         ## are reused by every particle:
-        ##   hits     = ranges < cfg.range_max - 1e-6   (a max-range return
+        ##   hits     = ranges < cfg.range_max - 1e-6   (a max-range returntimings
         ##              says "nothing out to here"; it maps free space but
         ##              must never score a pose)
         ##   ep_hit   = endpoints[hits]
@@ -143,13 +192,13 @@ class GridFastSLAM:
         ## return StepInfo(n_eff=n_eff, resampled=resampled,
         ##                 n_fallback=n_fallback, timings=timings,
         ##                 best_index=argmax of the log-weights)
-        raise NotImplementedError
+        #raise NotImplementedError
 
     def _normalize(self):
         """Normalize the particle weights and compute the effective sample size.
 
         Returns:
-        
+
             weights : np.ndarray
                 The normalized weights of the particles.
             n_eff : float

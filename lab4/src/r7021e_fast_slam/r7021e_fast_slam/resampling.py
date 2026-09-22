@@ -39,14 +39,16 @@ def systematic_resample(weights, rng) -> np.ndarray:
     start = rng.random() * P
     stop = start + P*(N-1)
     pointers = np.linspace(start,stop,N)
-    keep = []
-    for p in pointers:
 
-        for j in range(len(weights)):
-            seg_sum = np.sum(weights[:j+1])
-            if seg_sum < p:
-                continue
-            else:
-                keep.append(j)
-                break
-    return np.array(keep,dtype=int)
+    cumulative = np.cumsum(weights)
+    cumulative[-1] = 1.0  # protect against floating-point roundoff
+
+    return np.searchsorted(cumulative, pointers, side='right')
+
+
+if __name__ == '__main__':
+    import random as rng
+    weights = [0.125,0.375,0.25,0.25]
+    weights = np.array(weights)
+    keep = systematic_resample(weights,rng)
+    print(keep)
