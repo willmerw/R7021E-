@@ -32,7 +32,7 @@ SIGMA_EIG_MIN = 1.0e-6
 def proposal_candidates(x_star, cfg) -> np.ndarray:
     """K candidate poses around the scan-matched pose.
 
-    A regular lattice: it covers the small search window evenly. 
+    A regular lattice: it covers the small search window evenly.
     K is rounded down to a perfect cube, e.g. 27 gives 3 x 3 x 3.
 
     Args:
@@ -46,7 +46,29 @@ def proposal_candidates(x_star, cfg) -> np.ndarray:
         Implement the generation of candidate poses around the scan-matched pose `x_star`
         using a regular lattice within the specified proposal window.
     """
-    raise NotImplementedError
+
+    center = np.asarray(x_star, dtype=float) #center of lattice
+
+    k = cfg.num_candidates
+    w = cfg.proposal_window_xy
+    wTheta = cfg.proposal_window_theta
+
+    rounded_n = int(np.floor(np.cbrt(k))) # k is first taken cubed root then rounded down
+
+    if rounded_n == 1:
+        d_xy = d_theta = [0.0]
+    else:
+        d_xy = np.linspace(-w, w, rounded_n)
+        d_theta = np.linspace(-wTheta, wTheta, rounded_n)
+
+    dx, dy, dt = np.meshgrid(d_xy, d_xy, d_theta, indexing="ij")
+
+    candi_poses = np.stack([center[0] + dx.ravel(),
+                            center[1] + dy.ravel(),
+                            wrap_angle(center[2] + dt.ravel())], axis=1)
+
+
+    return candi_poses
 
 
 def improved_proposal(x_star, x_prev, u, endpoints, grid_map, cfg):
@@ -59,7 +81,7 @@ def improved_proposal(x_star, x_prev, u, endpoints, grid_map, cfg):
         endpoints:  (N, 2) array of laser scan endpoints in the robot frame.
         grid_map:   occupancy grid map.
         cfg:        configuration object with proposal parameters.
-    
+
     Returns:
         log_eta:    float, the importance weight factor for the particle.
         mu:        (3,) numpy array, the mean of the candidate poses.
@@ -70,11 +92,31 @@ def improved_proposal(x_star, x_prev, u, endpoints, grid_map, cfg):
     pose: it approximates the integral p(z | x_prev, m, u), which is what the
     weight is supposed to be.
 
-    TODO: 
-        Use `proposal_candidates` to generate candidate poses around `x_star`, 
+    TODO:
+        Use `proposal_candidates` to generate candidate poses around `x_star`,
         then compute the importance weights `log_tau` for each candidate using
-        the measurement likelihood and motion model. 
-        Normalize the weights to get `w`, and use them to compute the weighted 
+        the measurement likelihood and motion model.
+        Normalize the weights to get `w`, and use them to compute the weighted
         mean `mu` and covariance `Sigma`.
     """
-    raise NotImplementedError
+    candidates = proposal_candidates(x_star, cfg)
+    sig = cfg.odometry_sigmas
+    log_tau = measurement_log_likelihood(candidates, endpoints, grid_map, cfg) + motion_model_log_pdf(candidates, x_prev, u, sig)
+    log_eta = logsumexp(log_tau)
+
+    w = np.exp(log_tau - log_eta)
+
+    d = candidates - x_star
+    d[:,2] = wrap_angle(d[:,2])
+    d_mu = w @ d
+    mu = x_star + d_mu
+    mu[2] = wrap_angle(mu[2])
+    e = d - d_mu
+    sigma = (w[:, None] * e).T @ e + np.diag(SIGMA_REG)
+    vals,vecs = np.linalg.eigh(sigma)
+    vals = np.maximum(vals, SIGMA_EIG_MIN)
+    sigma = vecs @ np.diag(vals) @ vecs.T
+
+
+
+    return float(log_eta), mu, sigma
