@@ -7,28 +7,28 @@
 grid_slam_node:
   ros__parameters:
     ## --- particle filter ---
-    num_particles: 10
+    num_particles: 25
     seed: 1
     use_measurement_update: true       # false: occupancy mapping only
-    use_improved_proposal: true        # false: FastSLAM 1.0 baseline
-    resample_threshold: 0.5            # resample when N_eff < threshold * N
-    resample_every_step: true
+    use_improved_proposal: true       # false: FastSLAM 1.0 baseline
+    resample_threshold: 0.75            # resample when N_eff < threshold * N
+    resample_every_step: false
 
     ## --- motion model: [sd_rot1, sd_trans, sd_rot2] in [rad, m, rad] ---
     ## The filter's BELIEF about how noisy the odometry is, PER FILTER STEP.
-    odometry_sigmas: [0.01, 0.01, 0.01]
+    odometry_sigmas: [0.01, 0.05, 0.0]
     ## Simulation only: noise ADDED to the odometry before the filter sees
     ## it. Opposite role to the line above. SET TO ZEROS ON HARDWARE, where
     ## the wheel odometry is already as bad as it is going to get.
-    odom_noise_sigma: [0.001, 0.001, 0.001]
+    odom_noise_sigma: [0.0, 0.0, 0.0]
 
     ## --- occupancy grid (tune in Task 1) ---
-    map_size_m: 5.0                       # square, centred on the start pose
-    map_resolution: 0.01                   # meters per cell
-    p_free: 0.2                            # inverse sensor model, free evidence
+    map_size_m: 10.0                       # square, centred on the start pose
+    map_resolution: 0.05                   # meters per cell
+    p_free: 0.4                            # inverse sensor model, free evidence
     p_occ: 0.8                             # inverse sensor model, hit evidence
-    hit_window_cells: 2.0                  # number of cells around the hit to consider
-    log_odds_limit: 2.0                    # clamp to [-limit, +limit]
+    hit_window_cells: 1.0                  # number of cells around the hit to consider
+    log_odds_limit: 4.0                    # clamp to [-limit, +limit]
     ## The prior p0 is fixed at 0.5 in code and is deliberately not tunable.
     use_clamping: true
 
@@ -49,17 +49,17 @@ grid_slam_node:
     ## (one cell at the far end of a beam, map_resolution / range_max rad):
     ## candidates inside one cell read the same probabilities and cannot be
     ## told apart, so a narrower window searches nothing.
-    scan_match_window_xy: 3.0
-    scan_match_window_theta: 3.0
-    match_score_min: 0.85          # minimum score for a successful scan match
+    scan_match_window_xy: 0.05
+    scan_match_window_theta: 0.0175
+    match_score_min: 0.7          # minimum score for a successful scan match
     ## Beam subsampling stride for scan matching.
     scan_match_stride: 1 # leave at 1 for full scan
     ## --- improved proposal ---
     num_candidates: 64                # K
     ## Proposal window parameters. Defines the search window for the improved
     ## proposal. Same floor as above, one cell rather than two.
-    proposal_window_xy: 3.0
-    proposal_window_theta: 3.0
+    proposal_window_xy: 0.05
+    proposal_window_theta: 0.0175
 
     ## --- update gating (tuned) ---
     ## Step at the scanner's rate. The two minimums below are now only a

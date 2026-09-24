@@ -106,17 +106,29 @@ def improved_proposal(x_star, x_prev, u, endpoints, grid_map, cfg):
 
     w = np.exp(log_tau - log_eta)
 
-    d = candidates - x_star
-    d[:,2] = wrap_angle(d[:,2])
-    d_mu = w @ d
-    mu = x_star + d_mu
-    mu[2] = wrap_angle(mu[2])
-    e = d - d_mu
+    #d = candidates - x_star
+
+
+
+    #d[:,2] = wrap_angle(d[:,2])
+    d_mu = np.empty(3)
+    d_mu[:2] = w @ candidates[:, :2]
+    d_mu[2] = float(np.arctan2(w @ np.sin(candidates[:, 2]), w @ np.cos(candidates[:, 2])))
+
+    #mu = x_star + d_mu
+
+
+    #mu[2] = wrap_angle(mu[2])
+    #e = d - d_mu
+    e = np.empty_like(candidates)
+    e[:,:2] = candidates[:,:2] - d_mu[:2]
+    e[:, 2] = wrap_angle(candidates[:, 2] - d_mu[2])
+
     sigma = (w[:, None] * e).T @ e + np.diag(SIGMA_REG)
+    sigma = 0.5 * (sigma + sigma.T)
     vals,vecs = np.linalg.eigh(sigma)
     vals = np.maximum(vals, SIGMA_EIG_MIN)
     sigma = vecs @ np.diag(vals) @ vecs.T
+    sigma = 0.5 * (sigma + sigma.T)
 
-
-
-    return float(log_eta), mu, sigma
+    return float(log_eta), d_mu, sigma

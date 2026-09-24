@@ -29,8 +29,8 @@ PRIOR_WEIGHT = 0.1
 def candidate_grid(center, win_xy, step_xy, win_th, step_th) -> np.ndarray:
     """Regular lattice of candidate poses centred on `center`."""
     center = np.asarray(center, dtype=float)
-    n_xy = int(np.floor(win_xy / (step_xy+1e-6)))
-    n_th = int(np.floor(win_th / (step_th+1e-6)))
+    n_xy = int(np.floor(win_xy / (step_xy)))
+    n_th = int(np.floor(win_th / (step_th)))
     d_xy = np.arange(-n_xy, n_xy + 1) * step_xy
     d_th = np.arange(-n_th, n_th + 1) * step_th
     dx, dy, dth = np.meshgrid(d_xy, d_xy, d_th, indexing='ij')
