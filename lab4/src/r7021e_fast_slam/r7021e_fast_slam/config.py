@@ -15,7 +15,7 @@ asks you to tune. Every field is still a declared ROS parameter, so anything
 can be overridden from a YAML file or the command line.
 
 The derived properties at the bottom are the values the code actually uses.
-They are computed, never configured, so that the parameters you set stay the 
+They are computed, never configured, so that the parameters you set stay the
 ones you learned about in the notebooks.
 """
 from dataclasses import dataclass, fields

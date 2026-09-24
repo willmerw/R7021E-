@@ -1,19 +1,19 @@
 {
-  "num_particles": 1,
+  "num_particles": 10,
   "seed": 1,
-  "use_measurement_update": false,
+  "use_measurement_update": true,
   "use_improved_proposal": true,
-  "resample_threshold": 0.0,
+  "resample_threshold": 0.5,
   "resample_every_step": true,
   "odometry_sigmas": [
-    0.0,
-    0.0,
-    0.0
+    0.01,
+    0.01,
+    0.01
   ],
   "odom_noise_sigma": [
-    0.001,
-    0.001,
-    0.001
+    0.005,
+    0.005,
+    0.005
   ],
   "map_size_m": 5.0,
   "map_resolution": 0.01,
@@ -30,12 +30,12 @@
   "occ_thresh": 0.6,
   "likelihood_stride": 1,
   "scan_match_stride": 1,
-  "scan_match_window_xy": 0.0,
-  "scan_match_window_theta": 0.0,
-  "match_score_min": 0.0,
-  "num_candidates": 3,
-  "proposal_window_xy": 0.0,
-  "proposal_window_theta": 0.0,
+  "scan_match_window_xy": 3.0,
+  "scan_match_window_theta": 3.0,
+  "match_score_min": 0.85,
+  "num_candidates": 64,
+  "proposal_window_xy": 3.0,
+  "proposal_window_theta": 3.0,
   "update_max_rate": 10.0,
   "update_min_dist": 0.05,
   "update_min_angle": 0.0175,

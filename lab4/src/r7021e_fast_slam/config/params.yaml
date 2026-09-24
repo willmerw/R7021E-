@@ -7,16 +7,16 @@
 grid_slam_node:
   ros__parameters:
     ## --- particle filter ---
-    num_particles: 1
+    num_particles: 10
     seed: 1
-    use_measurement_update: false       # false: occupancy mapping only
+    use_measurement_update: true       # false: occupancy mapping only
     use_improved_proposal: true        # false: FastSLAM 1.0 baseline
     resample_threshold: 0.5            # resample when N_eff < threshold * N
     resample_every_step: true
 
     ## --- motion model: [sd_rot1, sd_trans, sd_rot2] in [rad, m, rad] ---
     ## The filter's BELIEF about how noisy the odometry is, PER FILTER STEP.
-    odometry_sigmas: [0.0, 0.0, 0.0]
+    odometry_sigmas: [0.01, 0.01, 0.01]
     ## Simulation only: noise ADDED to the odometry before the filter sees
     ## it. Opposite role to the line above. SET TO ZEROS ON HARDWARE, where
     ## the wheel odometry is already as bad as it is going to get.
@@ -49,17 +49,17 @@ grid_slam_node:
     ## (one cell at the far end of a beam, map_resolution / range_max rad):
     ## candidates inside one cell read the same probabilities and cannot be
     ## told apart, so a narrower window searches nothing.
-    scan_match_window_xy: 0.0
-    scan_match_window_theta: 0.0
-    match_score_min: 0.0          # minimum score for a successful scan match
+    scan_match_window_xy: 3.0
+    scan_match_window_theta: 3.0
+    match_score_min: 0.85          # minimum score for a successful scan match
     ## Beam subsampling stride for scan matching.
     scan_match_stride: 1 # leave at 1 for full scan
     ## --- improved proposal ---
-    num_candidates: 3                # K
+    num_candidates: 64                # K
     ## Proposal window parameters. Defines the search window for the improved
     ## proposal. Same floor as above, one cell rather than two.
-    proposal_window_xy: 0.0
-    proposal_window_theta: 0.0
+    proposal_window_xy: 3.0
+    proposal_window_theta: 3.0
 
     ## --- update gating (tuned) ---
     ## Step at the scanner's rate. The two minimums below are now only a
