@@ -138,7 +138,7 @@ class GridFastSLAM:
             timings['map_integrate'] += perf_counter() - t_map_start
 
         weights, n_eff = self._normalize()
-        best_idx = int(np.argmax(p.log_weight for p in self.particles)) # Calculate before resampling
+        best_idx = int(np.argmax([p.log_weight for p in self.particles])) # Calculate before resampling
         resampled = self._maybe_resample(weights, n_eff)
 
         return StepInfo(n_eff=n_eff, resampled=resampled, n_fallback=n_fallback, timings=timings, best_index=best_idx)
