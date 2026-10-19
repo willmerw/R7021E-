@@ -11,9 +11,9 @@
     0.001
   ],
   "odom_noise_sigma": [
-    0.005,
-    0.005,
-    0.005
+    0.0,
+    0.0,
+    0.0
   ],
   "map_size_m": 10.0,
   "map_resolution": 0.05,
@@ -32,7 +32,7 @@
   "scan_match_stride": 1,
   "scan_match_window_xy": 0.1,
   "scan_match_window_theta": 0.0175,
-  "match_score_min": 0.3,
+  "match_score_min": 0.1,
   "num_candidates": 27,
   "proposal_window_xy": 0.05,
   "proposal_window_theta": 0.0175,

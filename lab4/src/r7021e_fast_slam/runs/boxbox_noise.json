@@ -1,19 +1,19 @@
 {
-  "num_particles": 50,
-  "seed": 2,
+  "num_particles": 100,
+  "seed": 1,
   "use_measurement_update": true,
-  "use_improved_proposal": false,
+  "use_improved_proposal": true,
   "resample_threshold": 0.3,
   "resample_every_step": false,
   "odometry_sigmas": [
     0.02,
-    0.02,
+    0.32,
     0.001
   ],
   "odom_noise_sigma": [
-    0.005,
-    0.005,
-    0.005
+    0.0,
+    0.0,
+    0.0
   ],
   "map_size_m": 10.0,
   "map_resolution": 0.05,
@@ -41,5 +41,5 @@
   "update_min_angle": 0.0175,
   "scan_queue_depth": 1,
   "log_dir": "runs",
-  "run_name": "fs1_n50_s2"
+  "run_name": "boxbox_noise"
 }
